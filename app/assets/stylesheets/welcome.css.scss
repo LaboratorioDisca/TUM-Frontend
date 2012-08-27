@@ -1,0 +1,427 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,300italic,400italic,300,800,800italic);
+
+body, html { 
+	font-family: "Open Sans";
+	margin: 0;
+	padding: 0;
+	background-image: url('../assets/stripe.png');
+	overflow-x: hidden !important;
+}
+
+/*#map {
+  position:absolute;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  height:auto;
+  width:auto;
+  z-index:0;
+}*/
+
+#menu {
+	position: fixed;
+	top: 0;
+	background: url("../assets/menu-bar.png") no-repeat scroll center bottom transparent;
+	height: 90px;
+	width: 940px;
+	left: 50%;
+	margin-left: -470px;
+	z-index: 9999;
+	
+	.unam-logo {
+		position: absolute;
+		float: right;
+		top: 15px;
+		right: 20px;
+	}
+	
+	ul {
+		display: inline-block;
+		float: right;
+		list-style: none;
+		margin-right: 100px;
+		margin-top: 23px;
+		
+		li {
+			display: inline-block;
+		}
+	}
+	
+	a {
+		font-weight: 500;
+		text-decoration: none;
+		margin-left: 30px;
+		font-size: 12px;
+		color: #CECECE;
+	}
+	
+	a:hover {
+		color: #F4CD7C;
+	}
+	
+	a.active {
+		color: #A06200;
+	}
+	
+	.language {
+		font-transform: uppercase;
+		a {
+			font-size: 10px;
+			font-weight: bold;
+		}
+	}
+}
+
+.no-map {
+	height: 100%;
+	width: 100%;
+	background-color: #FFFABA;
+}
+
+
+#home {
+	background-color: rgba(0,33, 69,0.8);
+	border-bottom: 4px solid #313131;
+	height: 600px;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+
+#details {
+	padding-top: 70px;
+	height: 650px !important;
+	background-color: rgba(1,16,46,1);
+	clear: right;
+	
+	.container {
+		width: 960px;
+		margin-top: 10px;
+		
+		ul.grid, .img-container {
+			display: inline-block;
+			width: 45%;
+		}
+
+		ul.grid {
+			li:hover, li.active {
+				background-color: rgba(255, 255, 255,0.02);
+			}
+			li {
+				padding: 10px;
+				padding-bottom: 20px;
+				margin: 0;
+				margin-right: 20px;
+				height: 80px;
+				border-bottom: 1px dotted rgba(255, 255, 255,0.04);
+
+				p.title {
+					color: white;
+					font-size: 15px;
+					font-weight: bold;
+				}
+
+				p.description {
+					color: #D0D0D0;
+					font-size: 13px;
+				}
+			}
+		}
+
+		.img-container {
+			height: 538px;
+			background-color: rgba(255, 255, 255,0.1);
+		}
+	}
+	
+}
+
+#about {
+	height: 700px;
+	background-color: #fff;
+	
+	.labs {
+		padding-top: 70px;
+		background-color: #EBEBEB;
+		
+		.centered {
+			width: 960px;
+
+			.unam-logo, .iimas-logo, .pumabus-logo {
+				display: inline-block;
+			}
+
+			.unam-logo {
+				background-image: url('../assets/unam.png');
+				width: 175px;
+				height: 250px;
+				margin: 30px 140px 0px 10px;
+			}
+
+			.iimas-logo {
+				background-image: url('../assets/IIMAS.jpg');
+				width: 160px;
+				height: 200px;
+				margin-bottom: 40px;
+			}
+
+			.pumabus-logo {
+				background-image: url('../assets/pumabus.png');
+				width: 285px;
+				height: 90px;
+				margin-bottom: 90px;
+				margin-right: 150px;
+			}
+		}
+	}
+
+	
+	h1 {
+		font-weight: 500;
+		margin-bottom: 45px;
+		font-size: 50px;
+		text-align: center;
+		color: #AEAEAE;
+	}
+
+}
+
+#team {
+	height: 300px;
+}
+
+#contribute {
+	height: 700px;
+	background-color: rgba(232, 150, 0, 0.5);
+}
+
+#footer {
+	height: 200px;
+	padding: 30px;
+	background-color: rgba(0, 8, 18, 0.9);
+	
+	ul {
+		list-style: none;
+		padding: 6px 20px;
+		margin: 0px;
+		text-align: center;
+		padding-top: 20px;
+
+		li {
+			display: inline-block;
+			a {
+				color: #EDD489;
+				font-weight: 200;
+			}
+		}
+
+		li.apart {
+			margin-right: 15px;
+		}
+	}
+}
+
+#decoration {
+	top: 0;
+	width: 940px;
+	left: 50%;
+	margin-left: -470px;
+	position: fixed;
+	height: 1px;
+	background-color: #916306;
+}
+
+
+
+.centered {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.shadow {
+	-moz-box-shadow: -1px 2px 2px #888;
+	-webkit-box-shadow: -1px 2px 2px #888;
+	box-shadow: -1px 2px 2px #888;
+}
+
+.prev {
+	background-image: url('../assets/left.png');
+
+}
+
+.next {
+	background-image: url('../assets/right.png');
+}
+
+.pagination {
+	list-style: none;
+	text-align: center;
+}
+
+.pagination li {
+	margin: 0 5px;
+	display: inline-block;
+}
+
+.pagination li a {
+	display: block;
+	width: 16px;
+	height: 0;
+  padding-top: 17px;
+	overflow: hidden;
+	background-image: url('../assets/pagination_slider.png');
+	background-position: 0 0;
+}
+
+.pagination li.current a, .pagination li.current a:hover { background-position: 0 -17px; }
+
+.pagination li a:hover { background-position: 0 -34px }
+
+.two-containers {
+	width: 80%;
+	margin: 0 auto 0 auto;
+	
+	.container {
+		position: relative;
+		top: 180px;
+		left: 30%;
+		width: 700px;
+	}
+	
+	h1 {
+		margin-top: 0px;
+		padding: 80px 0px 0px 100px;
+		color: #89A9B7;
+		width: 500px;
+		text-align: center;
+		font-size: 42px;
+	}
+}
+
+.ios-logo, .android-logo {
+	display: inline-block;
+	position: absolute;
+	width: 180px;
+	opacity: 0;
+}
+
+.android-logo {
+	background-image: url('../assets/android.png');
+	height: 67px;
+	right: 190px;
+	top: 340px;
+}
+
+.android-logo:hover {
+	background-image: url('../assets/android_hover.png');
+}
+
+.ios-logo {
+	background-image: url('../assets/ios.png');
+	height: 66px;	
+	left: 100px;
+	top: 320px;
+}
+
+.ios-logo:hover {
+	background-image: url('../assets/ios_hover.png');
+}
+
+.android-logo.animate-in, .ios-logo.animate-in {
+	opacity: 1;
+	-webkit-transition-delay: 1s;
+	-moz-transition-delay: 1s;
+	-o-transition-delay: 1s;
+	-ms-transition-delay: 1s;
+	transition-delay: 1s;
+	
+	-webkit-transition-duration: 1s;
+	-moz-transition-duration: 1s;
+	-o-transition-duration: 1s;
+	-ms-transition-duration: 1s;
+	transition-duration: 1s;
+}
+
+.android-logo.animate-out, .ios-logo.animate-out {
+	opacity: 0;
+	-webkit-transition-duration: .5s;
+	-moz-transition-duration: .5s;
+	-o-transition-duration: .5s;
+	-ms-transition-duration: .5s;
+	transition-duration: .5s;
+}
+
+.firefox-logo, .chrome-logo, .safari-logo {
+	position: absolute;
+	height: 90px;
+	width: 90px;
+	top: 0px;
+	opacity: 0;
+}
+
+.firefox-logo {
+	background-image: url('../assets/firefox.png');
+	left: 40px;
+}
+
+.chrome-logo {
+	background-image: url('../assets/chrome.png');
+	left: 110px;
+}
+
+.safari-logo {
+	background-image: url('../assets/safari.png');
+	left: 180px;
+}
+
+.firefox-logo.animate-in {
+	-webkit-transition-delay: 1s;
+	-moz-transition-delay: 1s;
+	-o-transition-delay: 1s;
+	-ms-transition-delay: 1s;
+	transition-delay: 1s;
+}
+
+.chrome-logo.animate-in {
+	-webkit-transition-delay: 1.5s;
+	-moz-transition-delay: 1.5s;
+	-o-transition-delay: 1.5s;
+	-ms-transition-delay: 1.5s;
+	transition-delay: 1.5s;
+}
+
+.safari-logo.animate-in {
+	-webkit-transition-delay: 2s;
+	-moz-transition-delay: 2s;
+	-o-transition-delay: 2s;
+	-ms-transition-delay: 2s;
+	transition-delay: 2s;
+}
+
+.firefox-logo.animate-in, .chrome-logo.animate-in, .safari-logo.animate-in {
+	opacity: 1;
+	top: 350px;
+	
+	-webkit-transition-duration: 1s;
+	-moz-transition-duration: 1s;
+	-o-transition-duration: 1s;
+	-ms-transition-duration: 1s;
+	transition-duration: 1s;
+}
+
+
+.firefox-logo.animate-out, .chrome-logo.animate-out, .safari-logo.animate-out {
+	opacity: 0;
+	top: 1000px;
+	
+	-webkit-transition-duration: 1s;
+	-moz-transition-duration: 1s;
+	-o-transition-duration: 1s;
+	-ms-transition-duration: 1s;
+	transition-duration: 1s;
+}

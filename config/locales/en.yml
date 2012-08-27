@@ -1,0 +1,41 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  menu: 
+    home: "Home"
+    about: "About"
+    team: "Team"
+    details: "Features"
+    contribute: "Contribute"
+    lang: 
+      es: "SPANISH"
+      en: "ENGLISH"
+  home:
+    one:
+      title: "The pumabus is on your pocket"
+      idea: "Check it's real-time location"
+    two:
+      title: "Improves the mobility on the campus"
+      idea: "A tool developed for and by the UNAM community"
+    three:
+      title: "Available also in the web"
+      idea: "For those who doesn't own an smartphone"
+  about:
+    title: "About this project"
+  details:
+    routes:
+      title: "Routes"
+      description: "Select one or many routes"
+    map:
+      title: "Map"
+      description: "Visualize routes, stops & pumabuses on a map of the campus"
+    rt:
+      title: "Real-time information"
+      description: "See in real-time the location of the pumabus closer to your current location for the route of your interest"
+    schedules:
+      title: "Service schedules"
+      description: "Check the schedules on which the service is provided"
+    places:
+      title: "Pumabus stops"
+      description: "Find the stop you are looking-for and it's location on the map"

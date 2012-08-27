@@ -1,0 +1,76 @@
+<div id="menu">
+	<div id="decoration"></div>
+	<ul>
+		<li><%= link_to t('menu.home'), '#', :class => "home-trigger menu-link active" %></li>
+		<li><%= link_to t('menu.details'), '#', :class => "details-trigger menu-link" %></li>
+		<li><%= link_to t('menu.about'), '#', :class => "about-trigger menu-link" %></li>
+		<li><%= link_to t('menu.team'), '#', :class => "team-trigger menu-link" %></li>
+		<li><%= link_to t('menu.contribute'), '#', :class => "contribute-trigger menu-link" %></li>
+		<li class="language">
+			<% if I18n.locale.eql?(:es_MX) %>
+				<%= link_to t('menu.lang.en'), locales_en_path, :class => "home-lang" %>
+			<% elsif I18n.locale.eql?(:en) %>
+				<%= link_to t('menu.lang.es'), locales_es_path, :class => "home-lang" %>
+			<% end %>
+		</li>
+	</ul>
+	<%= link_to image_tag('unam_mini.png'), 'http://www.unam.mx', :target => "_blank", :class => "unam-logo" %>
+</div>
+
+<div id="scrollable-area">
+	<div id="home" class="blocky">
+		<%= render 'sequence' %>
+	</div>
+	<div id="details" class="blocky">
+		<div class="centered container">
+			<ul class="grid">
+				<li class="active">
+					<p class="title"><%= t('details.routes.title') %></p>
+					<p class="description"><%= t('details.routes.description') %></p>
+				</li>
+				
+				<li>
+					<p class="title"><%= t('details.map.title') %></p>
+					<p class="description"><%= t('details.map.description') %></p>
+				</li>
+			
+				<li>
+					<p class="title"><%= t('details.rt.title') %></p>
+					<p class="description"><%= t('details.rt.description') %></p>
+				</li>
+				
+				<li>
+					<p class="title"><%= t('details.schedules.title') %></p>
+					<p class="description"><%= t('details.schedules.description') %></p>
+				</li>
+				
+				<li>
+					<p class="title"><%= t('details.places.title') %></p>
+					<p class="description"><%= t('details.places.description') %></p>
+				</li>
+			</ul>
+			<div class="img-container"></div>
+		</div>
+	</div>
+	
+	<div id="about" class="blocky">
+		<div class="labs">
+			<div class="centered">
+				<a href="" class="unam-logo"></a>
+				<a href="" class="pumabus-logo"></a>
+				<a href="" class="iimas-logo"></a>
+			</div>
+		</div>
+		<div class="content">
+			<h1><%= t('about.title') %></h1>
+		</div>
+	</div>
+
+	<div id="team" class="blocky"></div>
+	<div id="contribute" class="blocky"></div>
+	<div id="footer" class="blocky">
+		<ul>
+			<li>Ciudad Universitaria, <a href="http://www.unam.mx" target="_blank">UNAM</a> 2012</li>
+		</ul>
+	</div>
+</div>

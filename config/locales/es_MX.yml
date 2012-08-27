@@ -1,0 +1,39 @@
+es_MX:
+  menu: 
+    home: "Principal"
+    about: "Acerca de"
+    team: "Equipo"
+    details: "Características"
+    contribute: "Contribuye"
+    lang: 
+      es: "ESPAÑOL"
+      en: "INGLÉS"
+  home:
+    one:
+      title: "El pumabus ahora más a la mano"
+      idea: "Consulta su ubicación en tiempo real"
+    two:
+      title: "Mejora la movilidad al interior de CU"
+      idea: "Una herramienta desarrollada por y para la comunidad universitaria"
+    three:
+      title: "Disponible también en web"
+      idea: "Para quienes no tienen un teléfono inteligente"
+  about:
+    related: ""
+    title: "Acerca de este proyecto"
+  details:
+    routes:
+      title: "Rutas"
+      description: "Selecciona una o varias rutas"
+    map:
+      title: "Mapa"
+      description: "Visualiza rutas, estaciones y autobuses del transporte universitario en un mapa de Ciudad Universitaria"
+    rt:
+      title: "Información en tiempo real"
+      description: "Ubica en tiempo real la posición del pumabus más cercano a tu ubicación actual para la ruta de tu interés"
+    schedules:
+      title: "Horarios de servicio"
+      description: "Consulta los horarios en los que se presta el servicio"
+    places:
+      title: "Paradas del pumabus"
+      description: "Encuentra la parada que estás buscando y su ubicación en el mapa"
