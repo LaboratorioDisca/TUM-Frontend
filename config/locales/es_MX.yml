@@ -21,6 +21,20 @@ es_MX:
   about:
     related: ""
     title: "Acerca de este proyecto"
+    history:
+      subtitle: "Inicios"
+      content: "Este proyecto inicio hace ..."
+    future:
+      subtitle: "Planes futuros"
+      content_one: "El campus de Ciudad Universitaria es un espacio ideal para innovar en muchas áreas de interés común, incorporando tecnologías computacionales de última generación potencializadas al interior de la comunidad universitaria. "
+      content_two: "En muchas ciudades alrededor del mundo - principalmente en los países europeos - se está apostado en construir buena infraestructura de transporte público, incorporando en ella tecnologías de vanguardia del área de Sistemas Inteligentes de Transporte (ITS por sus siglas en inglés). Nos toca desarrollar y eventualmente implementar las tecnologías que contribuyan a mejorar la manera en la que nos movemos en nuestras ciudades."
+      todos: "Algunos puntos en los que este proyecto puede mejorar: "
+      ideas: 
+        one: "Robustecer el mecanismo de reportes de la ubicación de los vehículos"
+        two: "Explorar alternativas como el <i>crowdsourcing</i> de la ubicación de los vehículos con hardware especializado desarrollado en el IIMAS"
+        three: "Incorporar sensores de saturación de vehículos"
+        four: "Desarrollar un sistema de generación de rutas óptimas (<i>wayfinding</i>) entre cualesquiera dos puntos dentro del campus"
+        five: "Robustecer este conjunto de tecnologías y llevarlo a sistemas de transporte público en diversas ciudades del país"
   details:
     routes:
       title: "Rutas"
@@ -37,3 +51,28 @@ es_MX:
     places:
       title: "Paradas del pumabus"
       description: "Encuentra la parada que estás buscando y su ubicación en el mapa"
+  team:
+    title: "El equipo"
+  social:
+    twitter: "Síguenos en Twitter"
+  contribute:
+    title: "Contribuye"
+    main: "¿Te gustaría contribuir en este proyecto?"
+    main_follow: "Actualmente necesitamos ayuda en las siguientes áreas:"
+    contact: "Ponte en contacto con alguno de nosotros, nuestros correos están justo arriba"
+    cartography:
+      title: "Cartografía"
+      description: "Usamos Mapbox y TileMill para generar un mapa diferente y con buen diseño de CU para las versiones en iOS y web."
+      hot: "Si te gustan los mapas aqui puedes aprender como hacer mejores mapas!"
+    design:
+      title: "Diseño"
+      description: "Contribuye con logos, iconos, texturas y elementos de la interfaz para la plataforma"
+      hot: "Solo necesitas tener buen gusto y saber usar herramientas de diseño"
+    hardware:
+      title: "Hardware"
+      description: "Ayúdanos a implementar nuevos sensores que generen datos útiles del servicio pumabus"
+      hot: "Estamos bien equipados!"
+    software:
+      title: "Software"
+      description: "Contribuye mejorando y extendiendo el backend escrito en Play con Scala, o bien el frontend web escrito en Ruby on Rails. Siempre hay tarea por hacer en la versión móvil para iOS y Android"
+      hot: "Si no sabes alguna de las tecnologías anteriores, es el mejor momento para aprender"

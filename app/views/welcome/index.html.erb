@@ -61,16 +61,107 @@
 				<a href="" class="iimas-logo"></a>
 			</div>
 		</div>
-		<div class="content">
+		<div class="two-contents centered">
 			<h1><%= t('about.title') %></h1>
+			
+			<div class="mid left">
+				<h4><%= t('about.history.subtitle') %></h4>
+				
+				<p><%= t('about.history.content') %></p>
+			</div>
+			
+			<div class="mid right">
+				<h4><%= t('about.future.subtitle') %></h4>
+				
+				<p><%= t('about.future.content_one') %></p>
+				<p><%= t('about.future.content_two') %></p>
+				<br/>
+				<p><%= t('about.future.todos') %></p>
+				<ol>
+					<li><%= t('about.future.ideas.one').html_safe %></li>
+					<li><%= t('about.future.ideas.two').html_safe %></li>
+					<li><%= t('about.future.ideas.three').html_safe %></li>
+					<li><%= t('about.future.ideas.four').html_safe %></li>
+					<li><%= t('about.future.ideas.five').html_safe %></li>
+				</ol>
+				
+			</div>			
 		</div>
 	</div>
 
-	<div id="team" class="blocky"></div>
-	<div id="contribute" class="blocky"></div>
-	<div id="footer" class="blocky">
-		<ul>
-			<li>Ciudad Universitaria, <a href="http://www.unam.mx" target="_blank">UNAM</a> 2012</li>
+	<div id="team" class="blocky">
+		<h1><%= t('team.title') %></h1>
+		
+		<ul class="members centered">
+			<li>
+				<p class="name">Nombre 1</p>
+				<div class="photo centered"></div>
+				
+				<p class="description">Un texto muy puntual sobre su contribución al proyecto</p>
+				<p class="email">correo@leibniz.unam.mx</p>
+			</li>
+			<li>
+				<p class="name">Nombre 2</p>
+				<div class="photo centered"></div>
+				
+				<p class="description">Un texto muy puntual sobre su contribución al proyecto</p>
+				<p class="email">correo@leibniz.unam.mx</p>
+			</li>
+			<li>
+				<p class="name">Nombre 3</p>
+				<div class="photo centered"></div>
+				
+				<p class="description">Un texto muy puntual sobre su contribución al proyecto</p>
+				<p class="email">correo@leibniz.unam.mx</p>
+			</li>
+			<li class="no-border">
+				<p class="name">Nombre 4</p>
+				<div class="photo centered"></div>
+				
+				<p class="description">Un texto muy puntual sobre su contribución al proyecto</p>
+				<p class="email">correo@leibniz.unam.mx</p>
+			</li>
 		</ul>
+	</div>
+	<div id="contribute" class="blocky">
+		<h1><%= t('contribute.title') %></h1>
+		<div class="content centered">
+			<h3><%= t('contribute.main') %></h3>
+			<p class="main-follow"><%= t('contribute.main_follow') %></p>
+			
+			<ul class="contributions centered">
+				<li>
+					<p class="aspect"><%= t('contribute.cartography.title') %></p>
+					<p class="description"><%= t('contribute.cartography.description') %></p>
+					<p class="hot"><%= t('contribute.cartography.hot') %></p>
+				</li>
+				<li>
+					<p class="aspect"><%= t('contribute.design.title') %></p>
+					<p class="description"><%= t('contribute.design.description') %></p>
+					<p class="hot"><%= t('contribute.cartography.hot') %></p>
+				</li>
+				<li>
+					<p class="aspect"><%= t('contribute.hardware.title') %></p>
+					<p class="description"><%= t('contribute.hardware.description') %></p>
+					<p class="hot"><%= t('contribute.hardware.hot') %></p>
+				</li>
+				<li>
+					<p class="aspect"><%= t('contribute.software.title') %></p>
+					<p class="description"><%= t('contribute.software.description') %></p>
+					<p class="hot"><%= t('contribute.software.hot') %></p>
+				</li>
+			</ul>
+			<p class="contact"><%= t('contribute.contact') %></p>
+			
+		</div>
+	</div>
+	<div id="social" class="blocky">
+		<div class="centered content">
+			<h2><%= t('social.twitter')%> </h2>
+			<%= link_to image_tag('../assets/twitter.png'), '#' , :class => "twitter" %>
+		</div>
+	</div>
+	<div id="footer" class="blocky">
+		<p>Ciudad Universitaria , <a href="http://www.unam.mx" target="_blank">UNAM</a> 2012</p>
 	</div>
 </div>
