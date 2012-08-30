@@ -24,32 +24,52 @@
 	<div id="details" class="blocky">
 		<div class="centered container">
 			<ul class="grid">
-				<li class="active">
+				<li class="active routes">
 					<p class="title"><%= t('details.routes.title') %></p>
 					<p class="description"><%= t('details.routes.description') %></p>
 				</li>
 				
-				<li>
+				<li class="map">
 					<p class="title"><%= t('details.map.title') %></p>
 					<p class="description"><%= t('details.map.description') %></p>
 				</li>
 			
-				<li>
+				<li class="real-time">
 					<p class="title"><%= t('details.rt.title') %></p>
 					<p class="description"><%= t('details.rt.description') %></p>
 				</li>
 				
-				<li>
+				<li class="schedules">
 					<p class="title"><%= t('details.schedules.title') %></p>
 					<p class="description"><%= t('details.schedules.description') %></p>
 				</li>
 				
-				<li>
+				<li class="places no-border">
 					<p class="title"><%= t('details.places.title') %></p>
 					<p class="description"><%= t('details.places.description') %></p>
 				</li>
 			</ul>
-			<div class="img-container"></div>
+			
+			<div id="screen-container" class="img-container">
+				<div id="places_ios"></div>
+				<div id="places_android"></div>
+				
+				<div id="schedules_android"></div>
+				<div id="schedules_ios"></div>
+				
+				<div id="real-time_android"></div>
+				<div id="real-time_ios"></div>
+				
+				<div id="map_ios"></div>
+				<div id="map_android"></div>
+				
+				<div id="routes_ios"></div>
+				<div id="routes_android"></div>
+			</div>
+		</div>
+		
+		<div class="centered bottom-final">
+			<p><%= t('details.extra.one') %></p>
 		</div>
 	</div>
 	
@@ -158,7 +178,7 @@
 	<div id="social" class="blocky">
 		<div class="centered content">
 			<h2><%= t('social.twitter')%> </h2>
-			<%= link_to image_tag('../assets/twitter.png'), '#' , :class => "twitter" %>
+			<%= link_to image_tag('../assets/twitter.png'), 'https://twitter.com/pumabusapp' , :target => "blank", :class => "twitter" %>
 		</div>
 	</div>
 	<div id="footer" class="blocky">

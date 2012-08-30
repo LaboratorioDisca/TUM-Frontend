@@ -24,6 +24,9 @@ en:
   about:
     title: "About this project"
   details:
+    extra:
+      one: ""
+      two: ""
     routes:
       title: "Routes"
       description: "Select one or many routes"

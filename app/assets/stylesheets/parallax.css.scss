@@ -28,7 +28,7 @@ body {
 	height: 600px;
 	margin: 0 auto;
 	position: relative;
-	top: -30px;
+	top: 40px;
 	width: 960px;
 	
 	/*backface-visibility prevents graphical glitches when frames are animating*/
@@ -80,7 +80,7 @@ h3 {
 .next, .prev {
 	display: inline-block;
 	z-index: 10000;
-	position: relative;
+	position: absolute;
 	height: 71px;
 	width: 50px;
 }
@@ -414,9 +414,9 @@ h3 {
 }
 
 .iphone-shadow.animate-in {
-	left: 550px;
+	left: 560px;
 	opacity: 1;
-	top: 460px;
+	top: 480px;
 
 	-webkit-transition-delay: .3s;
 	-moz-transition-delay: .3s;

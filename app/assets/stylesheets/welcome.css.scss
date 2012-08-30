@@ -135,10 +135,22 @@ body, html {
 }
 
 #details {
-	padding-top: 70px;
-	height: 650px !important;
+	padding-top: 100px;
+	height: 720px !important;
 	background-color: rgba(1,16,46,1);
 	clear: right;
+	
+	.bottom-final {
+		margin-top: 50px;
+		width: 960px !important;
+					
+					
+		p {
+			text-align: center;
+			color: #DDBC69;
+			font-style: italic;
+		}
+	}
 	
 	.container {
 		width: 960px;
@@ -153,7 +165,8 @@ body, html {
 			li:hover, li.active {
 				background-color: rgba(255, 255, 255,0.02);
 			}
-			li {
+			
+			> li {
 				padding: 10px;
 				padding-bottom: 20px;
 				margin: 0;
@@ -172,12 +185,64 @@ body, html {
 					font-size: 13px;
 				}
 			}
+			
+			> li.no-border {
+				border-bottom: none;
+			}
 		}
 
 		.img-container {
 			height: 538px;
-			background-color: rgba(255, 255, 255,0.1);
+			
+			
+			div {
+				display: none;
+				margin-left: 100px;
+				margin-top:30px;
+				-moz-box-shadow: 1px 2px 3px #050505;
+				-webkit-box-shadow: 1px 2px 3px #050505;
+				box-shadow: 1px 2px 3px #050505;
+			}
+			
+			div#routes_ios {
+				background-image: url('../assets/routes_ios.png');
+				width: 322px;
+				height: 482px;
+				display: block;
+			}
+			
+			div#map_ios {
+				background-image: url('../assets/map_ios.png');
+				width: 322px;
+				height: 481px;
+			}
+			
+			div#real-time_ios {
+				background-image: url('../assets/rt_ios.png');
+				width: 322px;
+				height: 480px;
+			}
+			
+			div#places_ios {
+				background-image: url('../assets/places_ios.png');
+				width: 322px;
+				height: 480px;
+			}
+			
+			div#schedules_ios {
+				background-image: url('../assets/timetables_ios.png');
+				width: 322px;
+				height: 480px;
+			}
+			
+			div#bus_ios {
+				background-image: url('../assets/bus_ios.png');
+				width: 322px;
+				height: 482px;
+			}
 		}
+		
+		
 	}
 	
 }
@@ -283,7 +348,7 @@ body, html {
 }
 
 #contribute {
-	height: 700px;
+	height: 750px;
 	background-color: rgba(232, 150, 0, 0.3);
 	padding-top: 50px;
 	

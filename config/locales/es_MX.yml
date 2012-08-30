@@ -36,6 +36,9 @@ es_MX:
         four: "Desarrollar un sistema de generación de rutas óptimas (<i>wayfinding</i>) entre cualesquiera dos puntos dentro del campus"
         five: "Robustecer este conjunto de tecnologías y llevarlo a sistemas de transporte público en diversas ciudades del país"
   details:
+    extra:
+      one: "Disponible en Español e Inglés"
+      two: "Interfaz intuitiva"
     routes:
       title: "Rutas"
       description: "Selecciona una o varias rutas"
@@ -49,7 +52,7 @@ es_MX:
       title: "Horarios de servicio"
       description: "Consulta los horarios en los que se presta el servicio"
     places:
-      title: "Paradas del pumabus"
+      title: "Lugares"
       description: "Encuentra la parada que estás buscando y su ubicación en el mapa"
   team:
     title: "El equipo"
@@ -59,20 +62,20 @@ es_MX:
     title: "Contribuye"
     main: "¿Te gustaría contribuir en este proyecto?"
     main_follow: "Actualmente necesitamos ayuda en las siguientes áreas:"
-    contact: "Ponte en contacto con alguno de nosotros, nuestros correos están justo arriba"
+    contact: "Ponte en contacto con alguno de nosotros, nuestros correos están justo arriba."
     cartography:
       title: "Cartografía"
-      description: "Usamos Mapbox y TileMill para generar un mapa diferente y con buen diseño de CU para las versiones en iOS y web."
+      description: "Usamos Mapbox y TileMill para generar un mapa diferente y con buen diseño de CU para las versiones en iOS y Web."
       hot: "Si te gustan los mapas aqui puedes aprender como hacer mejores mapas!"
     design:
       title: "Diseño"
-      description: "Contribuye con logos, iconos, texturas y elementos de la interfaz para la plataforma"
-      hot: "Solo necesitas tener buen gusto y saber usar herramientas de diseño"
+      description: "Contribuye con logos, iconografía, texturas y demás elementos para mejorar la interfaz de usuario para iOS, Android y la Web."
+      hot: "Solo necesitas tener buen gusto y saber usar herramientas de diseño."
     hardware:
       title: "Hardware"
-      description: "Ayúdanos a implementar nuevos sensores que generen datos útiles del servicio pumabus"
+      description: "Ayúdanos a implementar nuevo hardware para enriquecer el conjunto de datos del servicio que presta el pumabus."
       hot: "Estamos bien equipados!"
     software:
       title: "Software"
-      description: "Contribuye mejorando y extendiendo el backend escrito en Play con Scala, o bien el frontend web escrito en Ruby on Rails. Siempre hay tarea por hacer en la versión móvil para iOS y Android"
-      hot: "Si no sabes alguna de las tecnologías anteriores, es el mejor momento para aprender"
+      description: "Contribuye extendiendo el backend escrito en Scala o bien ayúdanos a mejorar el escrito en Ruby on Rails, aunque si te interesa lo móvil, las versiones para iOS y Android necesitan también de muchas manos."
+      hot: "Si no sabes alguna de las tecnologías anteriores, acá puedes aprender a usarlas."

@@ -147,8 +147,14 @@ $(document).ready(function() {
 	
 	// details context
 	
-	$('.grid li').bind('hover', function() {
+	$('.grid li').bind('mouseenter', function() {
 		$('.grid li').removeClass('active');
+		var type = $(this).attr('class').split(' ')[0];
 		$(this).addClass('active');
+		
+		$('#screen-container').children().hide();
+		
+		var elementToShow = "#"+type+"_ios";
+		$($('#screen-container').children(elementToShow)[0]).fadeIn();
 	});
 });
