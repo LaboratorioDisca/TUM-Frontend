@@ -26,15 +26,16 @@ es_MX:
       content: "Este proyecto inicio hace ..."
     future:
       subtitle: "Planes futuros"
-      content_one: "El campus de Ciudad Universitaria es un espacio ideal para innovar en muchas áreas de interés común, incorporando tecnologías computacionales de última generación potencializadas al interior de la comunidad universitaria. "
-      content_two: "En muchas ciudades alrededor del mundo - principalmente en los países europeos - se está apostado en construir buena infraestructura de transporte público, incorporando en ella tecnologías de vanguardia del área de Sistemas Inteligentes de Transporte (ITS por sus siglas en inglés). Nos toca desarrollar y eventualmente implementar las tecnologías que contribuyan a mejorar la manera en la que nos movemos en nuestras ciudades."
+      content_one: "El campus de Ciudad Universitaria es un espacio ideal para innovar en áreas que son de beneficio general. Al ser el campus una micro-ciudad, resulta interesante poder incorporar y probar tecnologías de última generación para resolver problemáticas internas reales que puedan después ser implementadas fuera del campus a una mucho mayor escala."
+      content_two: "En muchas ciudades alrededor del mundo - principalmente en los países europeos - la apuesta en materia de movilidad urbana esta centrada en la construcción de buena infraestructura de transporte público, incorporando en ella tecnologías de vanguardia en el área de Sistemas Inteligentes de Transporte (ITS por sus siglas en inglés)."
+      content_three: "Este proyecto incorpora tecnologías capaces de mejorar el servicio de transporte público interno universitario, pero que eventualmente puede ser escalado a los servicios de transporte público de cualquier ciudad en el país o el mundo."
       todos: "Algunos puntos en los que este proyecto puede mejorar: "
       ideas: 
-        one: "Robustecer el mecanismo de reportes de la ubicación de los vehículos"
-        two: "Explorar alternativas como el <i>crowdsourcing</i> de la ubicación de los vehículos con hardware especializado desarrollado en el IIMAS"
-        three: "Incorporar sensores de saturación de vehículos"
-        four: "Desarrollar un sistema de generación de rutas óptimas (<i>wayfinding</i>) entre cualesquiera dos puntos dentro del campus"
-        five: "Robustecer este conjunto de tecnologías y llevarlo a sistemas de transporte público en diversas ciudades del país"
+        one: "Robustecer el mecanismo de reportes de la ubicación de los vehículos."
+        two: "Explorar alternativas como el <i>crowdsourcing</i> de la ubicación de los vehículos haciendo uso de hardware especializado."
+        three: "Incorporar sensores adicionales en cada vehículo para enriquecer la información disponible para el usuario."
+        four: "Desarrollar un sistema de generación de rutas óptimas (<i>wayfinding</i>) entre cualesquiera dos puntos dentro del campus."
+        five: "Ofrecer una solución para ciudades que mejora e servicio de transporte público de cara a sus usuarios."
   details:
     extra:
       one: "Disponible en Español e Inglés"
@@ -63,6 +64,7 @@ es_MX:
     main: "¿Te gustaría contribuir en este proyecto?"
     main_follow: "Actualmente necesitamos ayuda en las siguientes áreas:"
     contact: "Ponte en contacto con alguno de nosotros, nuestros correos están justo arriba."
+    open_api: "En poco tiempo abriremos el API que usamos para los clientes móviles y web, de esta forma la innovación es mucho más abierta."
     cartography:
       title: "Cartografía"
       description: "Usamos Mapbox y TileMill para generar un mapa diferente y con buen diseño de CU para las versiones en iOS y Web."

@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.scrollTo.min
-//= require sequence.jquery-min
+//= require modestmaps
+//= require underscore
+//= require wax.g.min
 
-//= require_tree .
+//= require main

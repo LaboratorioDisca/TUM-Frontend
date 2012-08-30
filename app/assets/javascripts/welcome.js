@@ -155,6 +155,6 @@ $(document).ready(function() {
 		$('#screen-container').children().hide();
 		
 		var elementToShow = "#"+type+"_ios";
-		$($('#screen-container').children(elementToShow)[0]).fadeIn();
+		$($('#screen-container').children(elementToShow)[0]).show();
 	});
 });

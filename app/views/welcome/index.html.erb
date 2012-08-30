@@ -76,14 +76,18 @@
 	<div id="about" class="blocky">
 		<div class="labs">
 			<div class="centered">
-				<a href="" class="unam-logo"></a>
-				<a href="" class="pumabus-logo"></a>
-				<a href="" class="iimas-logo"></a>
+				<%= link_to "" ,"http://www.unam.mx", :target => "blank", :class => "unam-logo" %>
+				<%= link_to "" ,"http://www.pumabus.unam.mx/", :target => "blank", :class => "pumabus-logo" %>
+				<%= link_to "" ,"http://www.iimas.unam.mx/", :target => "blank", :class => "iimas-logo" %>
 			</div>
 		</div>
 		<div class="two-contents centered">
 			<h1><%= t('about.title') %></h1>
 			
+			<p><%= t('about.future.content_one') %></p>
+			<p><%= t('about.future.content_two') %></p>
+			<p><%= t('about.future.content_three') %></p>
+
 			<div class="mid left">
 				<h4><%= t('about.history.subtitle') %></h4>
 				
@@ -92,17 +96,13 @@
 			
 			<div class="mid right">
 				<h4><%= t('about.future.subtitle') %></h4>
-				
-				<p><%= t('about.future.content_one') %></p>
-				<p><%= t('about.future.content_two') %></p>
-				<br/>
-				<p><%= t('about.future.todos') %></p>
+
 				<ol>
-					<li><%= t('about.future.ideas.one').html_safe %></li>
+					<li class="odd"><%= t('about.future.ideas.one').html_safe %></li>
 					<li><%= t('about.future.ideas.two').html_safe %></li>
-					<li><%= t('about.future.ideas.three').html_safe %></li>
+					<li class="odd"><%= t('about.future.ideas.three').html_safe %></li>
 					<li><%= t('about.future.ideas.four').html_safe %></li>
-					<li><%= t('about.future.ideas.five').html_safe %></li>
+					<li class="odd"><%= t('about.future.ideas.five').html_safe %></li>
 				</ol>
 				
 			</div>			
@@ -173,6 +173,11 @@
 			</ul>
 			<p class="contact"><%= t('contribute.contact') %></p>
 			
+		</div>
+	</div>
+	<div id="api">
+		<div class="content centered">
+			<p><%= t('contribute.open_api') %></p>
 		</div>
 	</div>
 	<div id="social" class="blocky">

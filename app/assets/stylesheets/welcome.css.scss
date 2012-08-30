@@ -253,6 +253,12 @@ body, html {
 	
 	.two-contents {
 		width: 900px;
+		font-size: 14px;
+
+		.mid ol li, .mid p {
+			font-size: 15px !important;
+		}
+        
 	}
 	
 	.labs {
@@ -403,6 +409,23 @@ body, html {
 			display: inline-block;
 			width: 200px;
 		}
+	}
+}
+
+#api {
+	padding: 50px;
+	background-color: rgba(232, 150, 0, 0.8);
+	height: 100px;
+	font-weight: bold;
+	font-size: 18px;
+
+	.content {
+		width: 500px;
+	}
+
+	p {
+		
+		text-align: center;
 	}
 }
 
