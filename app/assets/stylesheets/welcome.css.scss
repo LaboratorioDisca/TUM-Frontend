@@ -340,9 +340,13 @@ body, html {
 		width: 500px;
 		
 		.twitter {
+			display: block;
+			background-image: url('../assets/twitter.png');
 			position: relative;
 			top: -85px;
 			left: 350px;
+			width: 100px;
+			height: 100px;
 		}
 	}
 }
