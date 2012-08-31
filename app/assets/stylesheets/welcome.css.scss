@@ -23,6 +23,17 @@ body, html {
   z-index:0;
 }*/
 
+.prox {
+	background-image: url('../assets/prox.png');
+	height: 200px;
+	width: 200px;
+	position: absolute;
+	z-index: 99999;
+	top: 0px;
+	float: right;
+	right: 0px;
+}
+
 #menu {
 	position: fixed;
 	top: 0;
@@ -32,6 +43,16 @@ body, html {
 	left: 50%;
 	margin-left: -470px;
 	z-index: 9999;
+	
+	.icono-navbar {
+		background-image: url('../assets/icono-navbar.png');
+		width: 200px;
+		height: 55px;
+		position: absolute;
+		left: 30px;
+		top: 10px;
+		
+	}
 	
 	.unam-logo {
 		position: absolute;
@@ -45,7 +66,7 @@ body, html {
 		float: right;
 		list-style: none;
 		margin-right: 100px;
-		margin-top: 23px;
+		margin-top: 18px;
 		
 		li {
 			display: inline-block;
@@ -86,8 +107,7 @@ body, html {
 
 #home {
 	background-color: rgba(0,33, 69,0.8);
-	border-bottom: 4px solid #313131;
-	height: 600px;
+	height: 700px;
 	overflow: hidden;
 	position: relative;
 	width: 100%;
@@ -498,6 +518,25 @@ body, html {
 .next {
 	background-image: url('../assets/right.png');
 }
+
+#communication {
+	background-color: #282828;
+	padding:5px;
+	height: 55px;
+	text-transform: uppercase;
+	
+	.invite {
+		strong {
+			color: #E69800;
+		}
+		color: white;
+		
+		text-align: center;
+		width: 960px;
+	}
+}
+
+
 
 .pagination {
 	list-style: none;

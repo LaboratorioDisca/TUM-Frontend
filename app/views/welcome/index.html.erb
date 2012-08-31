@@ -1,5 +1,7 @@
+<div class="prox"></div>
 <div id="menu">
 	<div id="decoration"></div>
+	<div class="icono-navbar"></div>
 	<ul>
 		<li><%= link_to t('menu.home'), '#', :class => "home-trigger menu-link active" %></li>
 		<li><%= link_to t('menu.details'), '#', :class => "details-trigger menu-link" %></li>
@@ -21,6 +23,11 @@
 	<div id="home" class="blocky">
 		<%= render 'sequence' %>
 	</div>
+	
+	<div id="communication">
+		<div class="centered invite"><p><strong><%= t('communication.invite.verb') %></strong><%= t('communication.invite.details').html_safe %></p></div>
+	</div>
+	
 	<div id="details" class="blocky">
 		<div class="centered container">
 			<ul class="grid">

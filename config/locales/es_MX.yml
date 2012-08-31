@@ -18,6 +18,10 @@ es_MX:
     three:
       title: "Disponible también en web"
       idea: "Para quienes no tienen un teléfono inteligente"
+  communication:
+    invite: 
+      verb: "Presentación: "
+      details: "12 de Agosto a las 11 horas @ <b>IIMAS, UNAM</b>"
   about:
     related: ""
     title: "Acerca de este proyecto"
