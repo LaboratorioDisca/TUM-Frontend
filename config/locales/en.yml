@@ -13,16 +13,37 @@ en:
       en: "ENGLISH"
   home:
     one:
-      title: "The pumabus is on your pocket"
+      title: "The pumabús on your pocket"
       idea: "Check it's real-time location"
     two:
       title: "Improves the mobility on the campus"
-      idea: "A tool developed for and by the UNAM community"
+      idea: "A tool developed for and by the campus community"
     three:
       title: "Available also in the web"
       idea: "For those who doesn't own an smartphone"
+  communication:
+    invite: 
+      verb: "Presentation: "
+      details: "12 August at 11 AM @ <b>IIMAS, UNAM</b>"
   about:
+    related: ""
     title: "About this project"
+    history:
+      subtitle: "Inception"
+      content_one: "This project is built upon the work done at the Departamento de Ingeniería de Sistemas Computacionales y Automatización (DISCA) at IIMAS with the goal of developing and implementing a real time vehícle tracking system for the pumabús system."
+      content_two: "It was considered a good idea for the benefits to the campus community, that pumabús frequent users could access the real-time location of any pumabús; thus, in the first months of this year we started the development of the platform which we are now presenting and which will be available for phones with iOS and Android operating systems, as well as modern Web browser clients."
+    future:
+      subtitle: "Future plans"
+      content_one: "The UNAM main campus is an ideal space for innovation around common well issues. As the campus is like a micro-city, it results interesting to be able to implement and test bleeding edge technologies for solving campus-wide issues which can later be implemented outside the campus at a bigger scale."
+      content_two: "On many cities around the globe - mainly on european cities - the governments are investing huge amounts of resources on the improvement of urban mobility through good public transportation infraestructure, with the aid of areas of study such as ITS (Intelligent Transportation Systems)."
+      content_three: "This project integrates technologies capable of improving the public transportation system at the UNAM campus, which can eventually get scaled for public transportation services in the Mexico's main cities and even on cities outside the country."
+      todos: "Some points on which this project can be improved: "
+      ideas: 
+        one: "Improve the mechanisms for getting the real-time location of vehicles."
+        two: "Explore alternatives such as <i>crowdsourcing</i> the vehicles location making use of specialized hardware."
+        three: "Integrate aditional sensors to each vehicle for getting richer information that can be useful for the user."
+        four: "Develop a wayfinding application allowing the use to retrieve optimal shortest paths between two points."
+        five: "Integrate a robust technology solution for cities who want to improve it's public transportation systems on behalf of their users."
   details:
     extra:
       one: ""
@@ -35,10 +56,36 @@ en:
       description: "Visualize routes, stops & pumabuses on a map of the campus"
     rt:
       title: "Real-time information"
-      description: "See in real-time the location of the pumabus closer to your current location for the route of your interest"
+      description: "See in real-time the location of the pumabús closer to your current location for the route of your interest"
     schedules:
       title: "Service schedules"
       description: "Check the schedules on which the service is provided"
     places:
-      title: "Pumabus stops"
+      title: "Pumabús stops"
       description: "Find the stop you are looking-for and it's location on the map"
+  social:
+    twitter: "Follow us on Twitter"
+  team:
+    title: "The team"
+  contribute:
+    title: "Contribute"
+    main: "Would you be interested on contributing on the development of this project?"
+    main_follow: "Currently we are needing volunteers on the following areas:"
+    contact: "Get in touch with any of us, our emails are just up there."
+    open_api: "In a few time we will be opening the backend's API which we are using with the web and mobile clients, so the innovation is much more open."
+    cartography:
+      title: "Cartography"
+      description: "We are using Mapbox & TileMill for generating a great CU map with also good design for the iOS and Web based clients."
+      hot: "If you love maps, then you'll love to help!"
+    design:
+      title: "Design"
+      description: "Contribute with logos, icons, textures and many other kinds of visual elements for building great UIX for iOS, Android and the Web."
+      hot: "We only ask you to have a keen eye on design and some knowledge on design tools."
+    hardware:
+      title: "Hardware"
+      description: "Help us develop new hardware for improving the Pumabús service with dynamic data."
+      hot: "We have the tools and a great team here!"
+    software:
+      title: "Software"
+      description: "Contribute extending the backend written on Scala or help us improve the frontend web written using Ruby on Rails. You can also opt to work on improving the mobile apps for Android and iOS."
+      hot: "There is a lot to learn, we can learn together and even create new libraries."

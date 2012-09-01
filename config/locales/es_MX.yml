@@ -10,13 +10,13 @@ es_MX:
       en: "INGLÉS"
   home:
     one:
-      title: "El pumabus ahora más a la mano"
+      title: "El pumabús ahora más a la mano"
       idea: "Consulta su ubicación en tiempo real"
     two:
-      title: "Mejora la movilidad al interior de CU"
+      title: "Mejora la experiencia de uso del Pumabús"
       idea: "Una herramienta desarrollada por y para la comunidad universitaria"
     three:
-      title: "Disponible también en web"
+      title: "Disponible para la Web"
       idea: "Para quienes no tienen un teléfono inteligente"
   communication:
     invite: 
@@ -26,8 +26,9 @@ es_MX:
     related: ""
     title: "Acerca de este proyecto"
     history:
-      subtitle: "Inicios"
-      content: "Este proyecto inicio hace ..."
+      subtitle: "Origen"
+      content_one: "Este proyecto se sustenta en el trabajo realizado por el Departamento de Ingeniería de Sistemas Computacionales y Automatización (DISCA) en el IIMAS para implementar un sistema de seguimiento en tiempo real de los pumabuses."
+      content_two: "Se consideró que sería un buen servicio para la comunidad universitaria dentro de CU poder consultar la ubicación en tiempo real de cada pumabús; por tanto a inicios de este año inicio el desarrollo de la plataforma que ahora se presenta y que estará disponible para teléfonos basados en el sistema operativo iOS y Android, así como también en cualquier explorador web."
     future:
       subtitle: "Planes futuros"
       content_one: "El campus de Ciudad Universitaria es un espacio ideal para innovar en áreas que son de beneficio general. Al ser el campus una micro-ciudad, resulta interesante poder incorporar y probar tecnologías de última generación para resolver problemáticas internas reales que puedan después ser implementadas fuera del campus a una mucho mayor escala."
@@ -39,7 +40,7 @@ es_MX:
         two: "Explorar alternativas como el <i>crowdsourcing</i> de la ubicación de los vehículos haciendo uso de hardware especializado."
         three: "Incorporar sensores adicionales en cada vehículo para enriquecer la información disponible para el usuario."
         four: "Desarrollar un sistema de generación de rutas óptimas (<i>wayfinding</i>) entre cualesquiera dos puntos dentro del campus."
-        five: "Ofrecer una solución para ciudades que mejora e servicio de transporte público de cara a sus usuarios."
+        five: "Integrar una solución basada en la tecnología para ciudades que quieran mejorar su servicio de transporte público en beneficio de sus usuarios."
   details:
     extra:
       one: "Disponible en Español e Inglés"
@@ -52,7 +53,7 @@ es_MX:
       description: "Visualiza rutas, estaciones y autobuses del transporte universitario en un mapa de Ciudad Universitaria"
     rt:
       title: "Información en tiempo real"
-      description: "Ubica en tiempo real la posición del pumabus más cercano a tu ubicación actual para la ruta de tu interés"
+      description: "Ubica en tiempo real la posición del pumabús más cercano a tu ubicación actual para la ruta de tu interés"
     schedules:
       title: "Horarios de servicio"
       description: "Consulta los horarios en los que se presta el servicio"
@@ -79,9 +80,9 @@ es_MX:
       hot: "Solo necesitas tener buen gusto y saber usar herramientas de diseño."
     hardware:
       title: "Hardware"
-      description: "Ayúdanos a implementar nuevo hardware para enriquecer el conjunto de datos del servicio que presta el pumabus."
+      description: "Ayúdanos a implementar nuevo hardware para enriquecer el conjunto de datos del servicio que presta el pumabús."
       hot: "Estamos bien equipados!"
     software:
       title: "Software"
-      description: "Contribuye extendiendo el backend escrito en Scala o bien ayúdanos a mejorar el escrito en Ruby on Rails, aunque si te interesa lo móvil, las versiones para iOS y Android necesitan también de muchas manos."
-      hot: "Si no sabes alguna de las tecnologías anteriores, acá puedes aprender a usarlas."
+      description: "Contribuye extendiendo el backend escrito en Scala o bien ayúdanos a mejorar el frontend escrito en Ruby on Rails, aunque si te interesa lo móvil, las versiones para iOS y Android necesitan también de muchas manos."
+      hot: "Hay mucho por aprender, podemos aprender entre todos e incluso crear nuevas bibliotecas."

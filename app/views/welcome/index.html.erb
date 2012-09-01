@@ -1,4 +1,7 @@
-<div class="prox"></div>
+
+<div class="<%= I18n.locale == :en ? "soon" : "prox" %>"></div>
+
+
 <div id="menu">
 	<div id="decoration"></div>
 	<div class="icono-navbar"></div>
@@ -8,13 +11,15 @@
 		<li><%= link_to t('menu.about'), '#', :class => "about-trigger menu-link" %></li>
 		<li><%= link_to t('menu.team'), '#', :class => "team-trigger menu-link" %></li>
 		<li><%= link_to t('menu.contribute'), '#', :class => "contribute-trigger menu-link" %></li>
-		<li class="language">
-			<% if I18n.locale.eql?(:es_MX) %>
-				<%= link_to t('menu.lang.en'), locales_en_path, :class => "home-lang" %>
-			<% elsif I18n.locale.eql?(:en) %>
-				<%= link_to t('menu.lang.es'), locales_es_path, :class => "home-lang" %>
-			<% end %>
-		</li>
+		<% if PumaBusApp.locales_enabled? %>
+			<li class="language">
+				<% if I18n.locale.eql?(:es_MX) %>
+					<%= link_to t('menu.lang.en'), locales_en_path, :class => "home-lang" %>
+				<% elsif I18n.locale.eql?(:en) %>
+					<%= link_to t('menu.lang.es'), locales_es_path, :class => "home-lang" %>
+				<% end %>
+			</li>
+		<% end %>
 	</ul>
 	<%= link_to image_tag('unam_mini.png'), 'http://www.unam.mx', :target => "_blank", :class => "unam-logo" %>
 </div>
@@ -98,7 +103,9 @@
 			<div class="mid left">
 				<h4><%= t('about.history.subtitle') %></h4>
 				
-				<p><%= t('about.history.content') %></p>
+				<p><%= t('about.history.content_one') %></p>
+				<p><%= t('about.history.content_two') %></p>
+				
 			</div>
 			
 			<div class="mid right">
@@ -121,33 +128,27 @@
 		
 		<ul class="members centered">
 			<li>
-				<p class="name">Nombre 1</p>
+				<p class="name">Dr. Juan Mario Peña Cabrera</p>
 				<div class="photo centered"></div>
 				
-				<p class="description">Un texto muy puntual sobre su contribución al proyecto</p>
-				<p class="email">correo@leibniz.unam.mx</p>
+				<p class="description">---</p>
+				<p class="email">mario@leibniz.iimas.unam.mx</p>
 			</li>
 			<li>
-				<p class="name">Nombre 2</p>
+				<p class="name">M. en I. Humberto Gómez Naranjo</p>
 				<div class="photo centered"></div>
 				
-				<p class="description">Un texto muy puntual sobre su contribución al proyecto</p>
-				<p class="email">correo@leibniz.unam.mx</p>
-			</li>
-			<li>
-				<p class="name">Nombre 3</p>
-				<div class="photo centered"></div>
-				
-				<p class="description">Un texto muy puntual sobre su contribución al proyecto</p>
-				<p class="email">correo@leibniz.unam.mx</p>
+				<p class="description">---</p>
+				<p class="email">hgomez@leibniz.iimas.unam.mx</p>
 			</li>
 			<li class="no-border">
-				<p class="name">Nombre 4</p>
+				<p class="name">Alejandro Eduardo Cruz Paz</p>
 				<div class="photo centered"></div>
 				
-				<p class="description">Un texto muy puntual sobre su contribución al proyecto</p>
-				<p class="email">correo@leibniz.unam.mx</p>
+				<p class="description">---</p>
+				<p class="email">aecp@ciencias.unam.mx</p>
 			</li>
+
 		</ul>
 	</div>
 	<div id="contribute" class="blocky">
@@ -165,7 +166,7 @@
 				<li>
 					<p class="aspect"><%= t('contribute.design.title') %></p>
 					<p class="description"><%= t('contribute.design.description') %></p>
-					<p class="hot"><%= t('contribute.cartography.hot') %></p>
+					<p class="hot"><%= t('contribute.design.hot') %></p>
 				</li>
 				<li>
 					<p class="aspect"><%= t('contribute.hardware.title') %></p>

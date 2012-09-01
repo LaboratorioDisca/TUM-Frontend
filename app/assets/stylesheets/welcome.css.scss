@@ -23,8 +23,7 @@ body, html {
   z-index:0;
 }*/
 
-.prox {
-	background-image: url('../assets/prox.png');
+.prox, .soon {
 	height: 200px;
 	width: 200px;
 	position: absolute;
@@ -32,6 +31,14 @@ body, html {
 	top: 0px;
 	float: right;
 	right: 0px;
+}
+
+.prox {
+	background-image: url('../assets/proximamente.png');
+}
+
+.soon {
+	background-image: url('../assets/soon.png');
 }
 
 #menu {
@@ -330,18 +337,20 @@ body, html {
 	
 	ul.members {
 		font-size: 12px;
-		width: 960px;
+		width: 900px;
 		
 		li.no-border {
 			border-right: none;
 		}
 		
 		li {
-			min-height: 400px;
+			min-height: 350px;
 			display: inline-block;
 			width: 220px;
+			padding-right: 30px;
+			padding-left: 30px;
 			text-align: center;
-			border-right: 0.4px dotted #6E6E6E;
+			border-right: 0.4px dotted #1762A9;
 			
 			.photo {
 				height: 130px;
@@ -350,6 +359,7 @@ body, html {
 			}
 			
 			.name {
+				font-size: 11px;
 				font-weight: bold;
 				color: #6D6D6D;
 			}
@@ -602,14 +612,14 @@ body, html {
 }
 
 .ios-logo {
-	background-image: url('../assets/ios.png');
+	background-image: url('../assets/ios_store_es_Mx.png');
 	height: 66px;	
 	left: 100px;
 	top: 320px;
 }
 
 .ios-logo:hover {
-	background-image: url('../assets/ios_hover.png');
+	background-image: url('../assets/ios_store_es_Mx_hover.png');
 }
 
 .android-logo.animate-in, .ios-logo.animate-in {
