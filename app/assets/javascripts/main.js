@@ -1,9 +1,19 @@
 var webServiceURL = "http://132.248.51.251:9000/";
+var tilesURL = "http://132.248.51.251:8888/v2/UNAMCU.json";
 
 $(document).ready(function() {
 	var map;
-	var latlng = new google.maps.LatLng(19.322675, -99.192080);
-	wax.tilejson('http://132.248.51.251:8888/v2/UNAMCU.json',
+	var latlng = new L.LatLng(19.322675,-99.192080);
+	
+	var map = new L.Map('map').setView(latlng, 16);
+
+  // Get metadata about the map from MapBox
+  wax.tilejson(tilesURL, function(tilejson) {
+      // Add MapBox Streets as a base layer
+      map.addLayer(new wax.leaf.connector(tilejson));
+  });
+	
+	/*wax.tilejson(tilesURL,
 	  function(tilejson) {
 	  map = new google.maps.Map(
 	    document.getElementById('map'), {
@@ -23,7 +33,7 @@ $(document).ready(function() {
 
 	  // Or use this code to add it as an overlay
 	  // m.overlayMapTypes.insertAt(0, new wax.g.connector(tilejson));
-	});
+	});*/
 	
 	var vehicleMarkers = {};
 	var vehicleInstants = {};
@@ -35,15 +45,18 @@ $(document).ready(function() {
 			console.log(data);
 			for(var idx in data) {
 				var line = lines[data[idx].lineId];
-				var marker = new google.maps.Marker({
-					title: "Vehiculo # "+data[idx].identifier,
-					icon: webServiceURL+'assets/images/'+line.simpleIdentifier+'.png'
+				
+				var myIcon = L.icon({
+				    iconUrl: webServiceURL+'assets/images/'+line.simpleIdentifier+'.png',
+				    iconSize: [32, 37],
+				    popupAnchor: [-3, -76]
 				});
+				
+				var marker = L.marker([0,0], {icon: myIcon, title: "Vehiculo # "+data[idx].identifier }).addTo(map);
 				var vehicleId = data[idx].id;
 				
 				vehicleMarkers[vehicleId] = marker;
 				vehicleInstants[vehicleId] = null;
-
 			}
 		});
 	}
@@ -76,16 +89,16 @@ $(document).ready(function() {
 
 	var updateMarker = function(marker, object) {
 		
-		var latlng = new google.maps.LatLng(object.coordinate.lat, object.coordinate.lon);
-		if(marker.getMap() != null) {
-			marker.setMap(null);
+		if(!map.hasLayer(marker)) {
+			marker.addTo(map);
 		}
-		marker.setPosition(latlng);
 		
-		var date = new Date(object.createdAt).toLocaleDateString() +" - "+ new Date(object.createdAt).toLocaleTimeString();
+		marker.setLatLng(new L.LatLng(object.coordinate.lat, object.coordinate.lon));
+		
+		/*var date = new Date(object.createdAt).toLocaleDateString() +" - "+ new Date(object.createdAt).toLocaleTimeString();
 		
 		marker.setTitle("Velocidad: " + object.speed + "(km/h) Recibido: " + date);
-		marker.setMap(map);
+		marker.setMap(map);*/
 	}
 	
 });

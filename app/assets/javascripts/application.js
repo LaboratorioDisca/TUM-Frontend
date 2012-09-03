@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require modestmaps
 //= require underscore
-//= require wax.g.min
+//= require leaflet
+//= require wax.leaf.min
 
 //= require main
