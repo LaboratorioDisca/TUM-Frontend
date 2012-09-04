@@ -1,3 +1,8 @@
+/*
+ *= require_self
+ *= require parallax
+ */
+
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -11,17 +16,6 @@ body, html {
 	background-image: url('../assets/stripe.png');
 	overflow-x: hidden !important;
 }
-
-/*#map {
-  position:absolute;
-  top:0px;
-  left:0px;
-  right:0px;
-  bottom:0px;
-  height:auto;
-  width:auto;
-  z-index:0;
-}*/
 
 .prox, .soon {
 	height: 200px;
@@ -73,7 +67,7 @@ body, html {
 		float: right;
 		list-style: none;
 		margin-right: 100px;
-		margin-top: 18px;
+		margin-top: 25px;
 		
 		li {
 			display: inline-block;

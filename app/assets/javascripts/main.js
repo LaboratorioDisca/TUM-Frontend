@@ -2,6 +2,15 @@ var webServiceURL = "http://132.248.51.251:9000/";
 var tilesURL = "http://132.248.51.251:8888/v2/UNAMCU.json";
 
 $(document).ready(function() {
+	var coreInstance = new TUMCore({ tilesURL : tilesURL, url : webServiceURL });
+	
+	Path.map("#/").to(coreInstance.landing);
+	Path.map("#/routes").to(coreInstance.routes);
+	
+	Path.root("#/");
+	Path.listen();
+	
+	
 	var map;
 	var latlng = new L.LatLng(19.322675,-99.192080);
 	
@@ -42,14 +51,12 @@ $(document).ready(function() {
 	var retrieveVehicles = function() {
 		// all vehicles
 		$.getJSON(webServiceURL+"vehicles?callback=?", function(data){
-			console.log(data);
 			for(var idx in data) {
 				var line = lines[data[idx].lineId];
 				
 				var myIcon = L.icon({
 				    iconUrl: webServiceURL+'assets/images/'+line.simpleIdentifier+'.png',
-				    iconSize: [32, 37],
-				    popupAnchor: [-3, -76]
+				    iconSize: [32, 37]
 				});
 				
 				var marker = L.marker([0,0], {icon: myIcon, title: "Vehiculo # "+data[idx].identifier }).addTo(map);

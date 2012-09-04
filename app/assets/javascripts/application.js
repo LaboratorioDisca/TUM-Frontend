@@ -16,5 +16,8 @@
 //= require underscore
 //= require leaflet
 //= require wax.leaf.min
+//= require path.min
 
 //= require main
+//= require app.body
+

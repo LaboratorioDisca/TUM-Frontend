@@ -14,7 +14,7 @@ TUMWeb::Application.routes.draw do
   #   resources :products
   match 'locales/es' => 'locales#spanish'
   match 'locales/en' => 'locales#english'
-  #resources :web, :only => [:index]
+  resources :web, :only => [:index]
 
   # Sample resource route with options:
   #   resources :products do
