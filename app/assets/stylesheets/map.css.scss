@@ -9,6 +9,7 @@ body, html {
 	margin: 0;
 	padding: 0;
 	background-image: url('../images/white_boxes.png');
+	overflow: hidden;
 }
 
 #map {
@@ -36,20 +37,20 @@ body, html {
 	
 	height: 50px;
 	bottom: -2px;
+
+	overflow: visible !important;
+	background-color: rgba(255, 255, 255, 0.9);
 }
 
 #routes-listing-panel {
 	left: 100px;
 	width: 800px;
-	background-color: rgba(255, 255, 255, 0.7);
 }
 
 #routes-main-panel {
 	left: 50%;
 	margin-left: -225px;
 	width: 450px;
-	background-color: rgba(255, 255, 255, 0.7);
-	border: 1.5px solid #0D274C;
 	
 	p {
 		margin: 10px 0px 0px 30px;
@@ -68,7 +69,7 @@ body, html {
 }
 
 .punch {
-	text-decoration: none;
+  text-decoration: none;
   background: #4162a8;
   border-top: 1px solid #38538c;
   border-right: 1px solid #1f2d4d;
