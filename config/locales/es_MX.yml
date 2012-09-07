@@ -21,7 +21,7 @@ es_MX:
   communication:
     invite: 
       verb: "Presentación: "
-      details: "12 de Agosto a las 11 horas @ <b>IIMAS, UNAM</b>"
+      details: "19 de Agosto a las 11 horas @ <b>IIMAS, UNAM</b>"
   about:
     related: ""
     title: "Acerca de este proyecto"
@@ -69,7 +69,7 @@ es_MX:
     main: "¿Te gustaría contribuir en este proyecto?"
     main_follow: "Actualmente necesitamos ayuda en las siguientes áreas:"
     contact: "Ponte en contacto con alguno de nosotros, nuestros correos están justo arriba."
-    open_api: "En poco tiempo abriremos el API que usamos para los clientes móviles y web, de esta forma la innovación es mucho más abierta."
+    open_api: "En poco tiempo abriremos el API que usamos para los clientes móviles y web, de esta forma hay mucho más espacio para la innovación."
     cartography:
       title: "Cartografía"
       description: "Usamos Mapbox y TileMill para generar un mapa diferente y con buen diseño de CU para las versiones en iOS y Web."
