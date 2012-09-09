@@ -13,7 +13,7 @@ var TUMCore = function(params) {
 	
 
 	var initialize = function() {
-		fetchLines();
+		fetchLinesAndVehicles();
 	}	
 	
 	var fetchLinesAndVehicles = function() {

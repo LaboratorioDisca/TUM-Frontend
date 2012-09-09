@@ -1,6 +1,7 @@
 /*
  *= require_self
  *= require parallax
+ *= require commons
  */
 
 // Place all the styles related to the welcome controller here.
@@ -10,10 +11,10 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,300italic,400italic,300,800,800italic);
 
 body, html { 
-	font-family: "Open Sans";
+	font-family: "Open Sans" !important;
 	margin: 0;
 	padding: 0;
-	background-image: url('../assets/stripe.png');
+	background-image: url('../assets/stripe.png') !important;
 	overflow-x: hidden !important;
 }
 
@@ -87,7 +88,7 @@ body, html {
 	}
 	
 	a.active {
-		color: #A06200;
+		color: #FFB82F;
 	}
 	
 	.language {
@@ -155,9 +156,10 @@ body, html {
 	}
 }
 
+
+
 #details {
-	padding-top: 100px;
-	height: 720px !important;
+	padding: 10px 0px 30px 0px;
 	background-color: rgba(1,16,46,1);
 	clear: right;
 	
@@ -173,9 +175,41 @@ body, html {
 		}
 	}
 	
+	
 	.container {
 		width: 960px;
 		margin-top: 10px;
+		
+		.os-selector {
+			margin: 100px 160px 0px auto;
+			ul {
+				text-align: right;
+				
+				li {
+					display: inline-block;
+					margin-right: 10px;
+					
+					a {
+						width: 45px;
+						height: 45px;
+						display: block;
+						opacity: 0.3;
+					}
+					
+					a.active {
+						opacity: 1;
+					}
+					
+					a#ios {
+						background-image: url('../assets/apple-icon.png');
+					}
+
+					a#android {
+						background-image: url('../assets/android-icon.png');
+					}
+				}
+			}
+		}
 		
 		ul.grid, .img-container {
 			display: inline-block;
@@ -196,9 +230,8 @@ body, html {
 				border-bottom: 1px dotted rgba(255, 255, 255,0.04);
 
 				p.title {
-					color: white;
+					color: rgba(255,246,140,1);
 					font-size: 15px;
-					font-weight: bold;
 				}
 
 				p.description {
@@ -229,7 +262,6 @@ body, html {
 				background-image: url('../assets/routes_ios.png');
 				width: 322px;
 				height: 482px;
-				display: block;
 			}
 			
 			div#map_ios {
@@ -256,9 +288,35 @@ body, html {
 				height: 480px;
 			}
 			
-			div#bus_ios {
-				background-image: url('../assets/bus_ios.png');
-				width: 322px;
+			/* Android's */
+			
+			div#routes_android {
+				background-image: url('../assets/routes_android.png');
+				width: 292px;
+				height: 482px;
+			}
+			
+			div#map_android {
+				background-image: url('../assets/map_android.png');
+				width: 292px;
+				height: 482px;
+			}
+			
+			div#real-time_android {
+				background-image: url('../assets/rt_android.png');
+				width: 291px;
+				height: 482px;
+			}
+			
+			div#places_android {
+				background-image: url('../assets/places_android.png');
+				width: 291px;
+				height: 482px;
+			}
+			
+			div#schedules_android {
+				background-image: url('../assets/timetables_android.png');
+				width: 291px;
 				height: 482px;
 			}
 		}
@@ -320,9 +378,10 @@ body, html {
 }
 
 #team {
-	height: 650px;
-	padding-top: 50px;
+	padding: 50px;
 	background-color: rgba(41, 171, 165,0.08);
+	
+	border-bottom: 4px solid #3B393A;
 	
 	h1 {
 		color: #1762A9;
@@ -350,21 +409,22 @@ body, html {
 			.photo {
 				height: 130px;
 				width: 130px;
-				background-color: #6E6E6E;
 				margin-bottom: 40px;
+				-moz-box-shadow: 1px 2px 3px #050505;
+				-webkit-box-shadow: 1px 2px 3px #050505;
+				box-shadow: 1px 2px 3px #050505;
+				border: 2px solid #383838;
 			}
 			
 			.name {
-				font-size: 11px;
-				font-weight: bold;
-				color: #6D6D6D;
+				font-size: 13px;
+				color: black;
 				margin-bottom: 20px;
 			}
 
 			.description {
 				color: #505257;
 				font-size: 11px;
-				font-weight: bold;
 				text-align: justify;
 			}
 
@@ -402,9 +462,8 @@ body, html {
 }
 
 #contribute {
-	height: 750px;
 	background-color: rgba(232, 150, 0, 0.3);
-	padding-top: 50px;
+	padding: 50px;
 	
 	p.main-follow {
 		text-align: center;
@@ -450,6 +509,84 @@ body, html {
 				font-size: 12px;
 			}
 			
+			.icon {
+				margin-left: auto;
+				margin-right: auto;
+				width: 128px;
+				height: 128px;
+			}
+			
+			.design {
+				background-image: url('../assets/Design.png');
+			}
+			
+			.cartography {
+				background-image: url('../assets/Map.png');
+			}
+			
+			.terminal {
+				background-image: url('../assets/Terminal.png');
+			}
+			
+			.hardware {
+				background-image: url('../assets/Hardware.png');
+			}
+			
+			.contributors {
+				
+				background-color: rgba(0,0,0,0.8);
+				padding: 1px 2px;
+				color: white;
+				margin: 0px;
+				cursor: pointer;
+				font-weight: bold;
+				font-size: 15px;
+				width: 20px;
+				float: right;
+				text-align: center;
+			}
+			
+			.credits {
+				font-size: 10px;
+				color: black;
+				border-top: 0.4px dotted #1B2C47;
+				margin-top: 40px;
+				padding-top: 10px;
+				
+				.title {
+					text-transform: uppercase;
+					font-size: 10px;
+					font-weight: bold;
+					margin: 0px;
+					margin-bottom: 10px;
+				}
+				
+				.contribution {
+					p.name {
+						font-weight: bold;
+					}
+					
+					p {
+						margin: 0px;
+					}
+					
+					.contact {
+						font-style: italic;
+						color: #595858;
+					}
+				}
+
+			}
+			
+			.description {
+				font-size: 13px;
+				a, a:visited {
+					text-decoration: none;
+					font-weight: bold;
+					color: #344D8B;
+				}
+			}
+			
 			display: inline-block;
 			width: 200px;
 		}
@@ -459,7 +596,6 @@ body, html {
 #api {
 	padding: 50px;
 	background-color: rgba(232, 150, 0, 0.8);
-	height: 100px;
 	font-weight: bold;
 	font-size: 18px;
 
@@ -473,9 +609,7 @@ body, html {
 	}
 }
 
-#footer {
-	height: 100px;
-	
+#footer {	
 	padding: 30px;
 	background-color: rgba(0, 8, 18, 0.9);
 	

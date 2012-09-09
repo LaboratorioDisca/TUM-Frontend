@@ -144,17 +144,42 @@ $(document).ready(function() {
 	
 	$('.controls').delay(1000).fadeIn(3000);
 	
+	$('.contributors').bind('click', function() {
+		$(this).next().toggle();
+		
+		if($(this).next().is(':visible')) {
+			$(this).text('-');
+		} else {
+			$(this).text('+');
+		}
+	});
 	
 	// details context
+	var defaultOs = "ios";
+	var activeOs = defaultOs;
+	var lastImageType = "routes";
 	
 	$('.grid li').bind('mouseenter', function() {
 		$('.grid li').removeClass('active');
-		var type = $(this).attr('class').split(' ')[0];
+		lastImageType = $(this).attr('class').split(' ')[0];
 		$(this).addClass('active');
 		
-		$('#screen-container').children().hide();
-		
-		var elementToShow = "#"+type+"_ios";
-		$($('#screen-container').children(elementToShow)[0]).show();
+		imageToggler();
 	});
+	
+	var imageToggler = function() {
+		$('#screen-container').children().hide();
+		var elementToShow = "#"+lastImageType+"_"+activeOs;
+		$($('#screen-container').children(elementToShow)[0]).show();
+	}
+	
+	$('.selector').bind('click', function() {
+		$('.selector').removeClass('active');
+		$(this).addClass('active');
+		activeOs = $(this).attr('id');
+		
+		imageToggler();
+	})
+	
+	imageToggler();
 });

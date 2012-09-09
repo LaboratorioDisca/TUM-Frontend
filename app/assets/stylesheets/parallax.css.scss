@@ -55,13 +55,14 @@ body {
 h2 {
 	font-family: 'Magra', sans-serif;
 	font-size: 35px;
-	font-weight: bold;
+	font-weight: 100;
 	margin: 0 0 10px 0;
-	color: white;
+	color: #FFDE6D;
 	text-shadow: 2px 2px #000;
 }
 
 h3 {
+	font-weight: 100;
 	font-family: 'Magra', sans-serif;
 	font-size: 20px;
 	color: white;
@@ -559,8 +560,8 @@ h3 {
 }
 
 .galaxy-shadow.animate-in {
-	left: 80px;
-	top: 425px;
+	left: 84px;
+	top: 430px;
 	opacity: 1;
 
 	-webkit-transition-delay: .5s;

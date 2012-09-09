@@ -13,7 +13,7 @@ es_MX:
       title: "El pumabús ahora más a la mano"
       idea: "Consulta su ubicación en tiempo real"
     two:
-      title: "Mejora la experiencia de uso del Pumabús"
+      title: "Mejora la experiencia de los usuarios del Pumabús"
       idea: "Una herramienta desarrollada por y para la comunidad universitaria"
     three:
       title: "Disponible para la Web"
@@ -31,19 +31,19 @@ es_MX:
       content_two: "Se consideró que sería un buen servicio para la comunidad universitaria dentro de CU poder consultar la ubicación en tiempo real de cada pumabús; por tanto a inicios de este año inicio el desarrollo de la plataforma que ahora se presenta y que estará disponible para teléfonos basados en el sistema operativo iOS y Android, así como también en cualquier explorador web."
     future:
       subtitle: "Planes futuros"
-      content_one: "El campus de Ciudad Universitaria es un espacio ideal para innovar en áreas que son de beneficio general. Al ser el campus una micro-ciudad, resulta interesante poder incorporar y probar tecnologías de última generación para resolver problemáticas internas reales que puedan después ser implementadas fuera del campus a una mucho mayor escala."
+      content_one: "Al ser el campus de Ciudad Universitaria una micro-ciudad, resulta un espacio idóneo para desarrollar, probar y mejorar tecnologías de última generación para resolver problemáticas internas que eventualmente puedan ser implementadas fuera del campus para resolver problemáticas de ciudades a una mayor escala."
       content_two: "En muchas ciudades alrededor del mundo - principalmente en los países europeos - la apuesta en materia de movilidad urbana esta centrada en la construcción de buena infraestructura de transporte público, incorporando en ella tecnologías de vanguardia en el área de Sistemas Inteligentes de Transporte (ITS por sus siglas en inglés)."
-      content_three: "Este proyecto incorpora tecnologías capaces de mejorar el servicio de transporte público interno universitario, pero que eventualmente puede ser escalado a los servicios de transporte público de cualquier ciudad en el país o el mundo."
+      content_three: "Este proyecto incorpora tecnologías capaces de mejorar el servicio de transporte público interno universitario, pero que pueden ser escaladas a mejorar los servicios de transporte público de cualquier ciudad en el país o el mundo."
       todos: "Algunos puntos en los que este proyecto puede mejorar: "
       ideas: 
-        one: "Robustecer el mecanismo de reportes de la ubicación de los vehículos."
-        two: "Explorar alternativas como el <i>crowdsourcing</i> de la ubicación de los vehículos haciendo uso de hardware especializado."
+        one: "Robustecer el mecanismo de envío de reportes que tienen origen en cada vehículo."
+        two: "Explorar el uso del <i>crowdsourcing</i> en el cual los usuarios contribuyen reportes útiles para otros usuarios."
         three: "Incorporar sensores adicionales en cada vehículo para enriquecer la información disponible para el usuario."
         four: "Desarrollar un sistema de generación de rutas óptimas (<i>wayfinding</i>) entre cualesquiera dos puntos dentro del campus."
         five: "Integrar una solución basada en la tecnología para ciudades que quieran mejorar su servicio de transporte público en beneficio de sus usuarios."
   details:
     extra:
-      one: "Disponible en Español e Inglés"
+      one: "Disponible en Español e Inglés tanto para Android como para iOS"
       two: "Interfaz intuitiva"
     routes:
       title: "Rutas"
@@ -66,14 +66,14 @@ es_MX:
     twitter: "Síguenos en Twitter"
   contribute:
     title: "Contribuye"
-    main: "¿Te gustaría contribuir en este proyecto?"
+    main: "¿Te gustaría contribuir a este proyecto?"
     main_follow: "Actualmente necesitamos ayuda en las siguientes áreas:"
     contact: "Ponte en contacto con alguno de nosotros, nuestros correos están justo arriba."
     open_api: "En poco tiempo abriremos el API que usamos para los clientes móviles y web, de esta forma hay mucho más espacio para la innovación."
     cartography:
       title: "Cartografía"
-      description: "Usamos Mapbox y TileMill para generar un mapa diferente y con buen diseño de CU para las versiones en iOS y Web."
-      hot: "Si te gustan los mapas aqui puedes aprender como hacer mejores mapas!"
+      description: "Usamos herramientas como <a href='http://mapbox.com/' target='blank'>Mapbox</a> y <a href='http://www.openstreetmap.org/' target='blank'>OpenStreetMaps</a> para generar un mapa de Ciudad Universitaria detallado e intuitivo para las versiones en iOS y Web."
+      hot: "¿Te gustan los mapas? Contribuye y aprende como hacer mejores mapas"
     design:
       title: "Diseño"
       description: "Contribuye con logos, iconografía, texturas y demás elementos para mejorar la interfaz de usuario para iOS, Android y la Web."
@@ -81,8 +81,8 @@ es_MX:
     hardware:
       title: "Hardware"
       description: "Ayúdanos a implementar nuevo hardware para enriquecer el conjunto de datos del servicio que presta el pumabús."
-      hot: "Estamos bien equipados!"
+      hot: "Tenemos el equipo y el conocimiento, ven; diseña y construye hardware."
     software:
-      title: "Software"
+      title: "Programación"
       description: "Contribuye extendiendo el backend escrito en Scala o bien ayúdanos a mejorar el frontend escrito en Ruby on Rails, aunque si te interesa lo móvil, las versiones para iOS y Android necesitan también de muchas manos."
-      hot: "Hay mucho por aprender, podemos aprender entre todos e incluso crear nuevas bibliotecas."
+      hot: "Contribuye y mejora código escrito en tecnologías de última generación."
