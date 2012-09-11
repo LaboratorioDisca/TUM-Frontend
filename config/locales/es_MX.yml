@@ -10,13 +10,13 @@ es_MX:
       en: "INGLÉS"
   home:
     one:
-      title: "El pumabús ahora más a la mano"
-      idea: "Consulta su ubicación en tiempo real"
+      title: "El pumabús está ahora mucho más a la mano"
+      idea: "Al consultar su ubicación en tiempo real"
     two:
       title: "Mejora la experiencia de los usuarios del Pumabús"
       idea: "Una herramienta desarrollada por y para la comunidad universitaria"
     three:
-      title: "Disponible para la Web"
+      title: "También para la Web"
       idea: "Para quienes no tienen un teléfono inteligente"
   communication:
     invite: 
@@ -40,10 +40,10 @@ es_MX:
         two: "Explorar el uso del <i>crowdsourcing</i> en el cual los usuarios contribuyen reportes útiles para otros usuarios."
         three: "Incorporar sensores adicionales en cada vehículo para enriquecer la información disponible para el usuario."
         four: "Desarrollar un sistema de generación de rutas óptimas (<i>wayfinding</i>) entre cualesquiera dos puntos dentro del campus."
-        five: "Integrar una solución basada en la tecnología para ciudades que quieran mejorar su servicio de transporte público en beneficio de sus usuarios."
+        five: "Incorporar un mecanismo para enviar una llamada de auxilio que opere al interior del campus."
   details:
     extra:
-      one: "Disponible en Español e Inglés tanto para Android como para iOS"
+      one: "Disponible en Español e Inglés para Android, iOS y la Web"
       two: "Interfaz intuitiva"
     routes:
       title: "Rutas"
@@ -59,7 +59,7 @@ es_MX:
       description: "Consulta los horarios en los que se presta el servicio"
     places:
       title: "Lugares"
-      description: "Encuentra la parada que estás buscando y su ubicación en el mapa"
+      description: "Localiza paradas del pumabús y otros puntos de interés dentro del campus universitario"
   team:
     title: "El equipo"
   social:
@@ -69,7 +69,7 @@ es_MX:
     main: "¿Te gustaría contribuir a este proyecto?"
     main_follow: "Actualmente necesitamos ayuda en las siguientes áreas:"
     contact: "Ponte en contacto con alguno de nosotros, nuestros correos están justo arriba."
-    open_api: "En poco tiempo abriremos el API que usamos para los clientes móviles y web, de esta forma hay mucho más espacio para la innovación."
+    open_api: "Eventualmente publicaremos el API que usamos para los clientes móviles y web, de esta forma hay mucho más espacio para la innovación. <span class='data'>#opendata</span>"
     cartography:
       title: "Cartografía"
       description: "Usamos herramientas como <a href='http://mapbox.com/' target='blank'>Mapbox</a> y <a href='http://www.openstreetmap.org/' target='blank'>OpenStreetMaps</a> para generar un mapa de Ciudad Universitaria detallado e intuitivo para las versiones en iOS y Web."
