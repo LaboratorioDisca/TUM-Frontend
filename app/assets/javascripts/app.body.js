@@ -157,7 +157,7 @@ var TUMCore = function(params) {
 	}
 	
 	var fetchRecentInstants = function() {
-		$.getJSON(webServiceURL+"instants/minutesago/600?callback=?", function(data){
+		$.getJSON(webServiceURL+"instants/minutesago/3?callback=?", function(data){
 			for(var idx in data) {
 				// TODO: Drop vehicleId from new instant object
 				vehicles[data[idx].vehicleId]["instant"] = data[idx];
