@@ -7,7 +7,6 @@ $(document).ready(function() {
 	var map = new L.Map('map').setView(latlng, 16);
 	
 	var coreInstance = new TUMCore({ tilesURL : tilesURL, url : webServiceURL, map: map });
-	
 	Path.map("#/").to(coreInstance.routes);
 	Path.map("#/routes").to(coreInstance.routes);
 	Path.map("#/timetables").to(coreInstance.timetables);

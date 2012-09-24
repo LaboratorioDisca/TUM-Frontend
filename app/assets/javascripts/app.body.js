@@ -24,6 +24,8 @@ var TUMCore = function(params) {
 	var vehicles = null;
 	var currentlySelectedVehicle = null;
 	
+	var localeizator = new LocalesDictionary("es");
+
 	// Associated views
 	var rightPanel = "#right-panel";
 	var rightPanelExtended = '#right-panel-extended';
@@ -114,7 +116,7 @@ var TUMCore = function(params) {
 
 	var fetchVehicles = function() {
 		if(vehicles == null) {
-			$.getJSON(webServiceURL+"vehicles?callback=?", function(data){
+			$.getJSON(webServiceURL+"vehicles?callback=?", function(data) {
 				vehicles = {};
 				
 				for(var idx in data) {
@@ -202,29 +204,7 @@ var TUMCore = function(params) {
 				
 				var vehicleInstant = vehicles[vehicleId].instant;
 				if(vehicleInstant != null) {
-					// Check the marker is still on time to be displayed
-					var timestampMili = vehicleInstant.createdAt;
-					var currentMili = new Date().getMilliseconds();
-					
-					var seconds = Math.floor(Math.abs(currentMili-timestampMili) / 1000);
-					var minutesElapsed = Math.floor(seconds / 60);
-					
-					//console.log("Minutes elapsed: " + minutesElapsed);
-					var marker = vehicles[vehicleId].marker;
-					
-					//if(minutesElapsed > 3) {
-					//	map.removeLayer(marker);
-					//} else {
-						if(currentlySelectedVehicle == vehicleId) {
-							buildOrUpdateVehicleViewForCurrentVehicle();
-						}
-						// Add the marker if not already added
-						if(!map.hasLayer(marker)) {
-							marker.addTo(map);
-						}
-						// Set is position according to the last instant
-						marker.setLatLng(new L.LatLng(vehicleInstant.coordinate.lat, vehicleInstant.coordinate.lon));
-					//}
+					updateVehicleAssociatedViews(vehicleId);
 				}
 			}
 		}
@@ -254,23 +234,47 @@ var TUMCore = function(params) {
 	
 	// URL Routes responders
 	
-	var buildOrUpdateVehicleViewForCurrentVehicle = function() {
-		// Fetch handlebars template
-		var source   = $("#vehicle-template").html();
-		var template = Handlebars.compile(source);
+	var updateVehicleAssociatedViews = function(vehicleId) {
+		// Compute marker time to see if it can still be displayed
+		var timestampMili = vehicles[vehicleId].instant["createdAt"]
+		var currentMili = new Date().getMilliseconds();	
+		var seconds = Math.floor(Math.abs(currentMili-timestampMili) / 1000);
+		var minutesElapsed = Math.floor(seconds / 60);
+					
+		var marker = vehicles[vehicleId].marker;
+					
+		// If currently selected vehicle is the same as vehicleId, then build/update the view
+		if(currentlySelectedVehicle == vehicleId) {
+			// Fetch handlebars template
+			var source   = $("#vehicle-template").html();
+			var template = Handlebars.compile(source);
 		
-		var date = new Date(vehicles[currentlySelectedVehicle].instant["createdAt"]);
+			var date = new Date(timestampMili);
 		
-		var variables = _.extend({ 
-			lineOrigin: vehicles[currentlySelectedVehicle].line.leftTerminal,
-			lineDestination: vehicles[currentlySelectedVehicle].line.rightTerminal,
-			busNumber: vehicles[currentlySelectedVehicle].vehicle.publicNumber, 
-			busSpeed: vehicles[currentlySelectedVehicle].instant["speed"], 
-			busReportTimestamp: "Hoy a las " + date.getHours() + ":" + date.getMinutes() }, localizationForVehicleDetails("es"));
+			var variables = _.extend({ 
+				lineOrigin: vehicles[currentlySelectedVehicle].line.leftTerminal,
+				lineDestination: vehicles[currentlySelectedVehicle].line.rightTerminal,
+				busNumber: vehicles[currentlySelectedVehicle].vehicle.publicNumber, 
+				busSpeed: vehicles[currentlySelectedVehicle].instant["speed"], 
+				busReportTimestamp: localeizator.stringsWithCurrentLang["vehicles"]["today"] + date.getHours() + ":" + date.getMinutes() }, 
+				localeizator.stringsWithCurrentLang["vehicles"]["groupedDetails"]);
 		
-		$(rightPanelExtended + " .vehicle-details").html(template(variables));
-		$(rightPanelExtended + " .vehicle-details").css("border-color", vehicles[currentlySelectedVehicle].line["color"]);
-		$(rightPanelExtended + " .vehicle-details .identificators").css("background-color", vehicles[currentlySelectedVehicle].line["color"]);
+			$(rightPanelExtended + " .vehicle-details").html(template(variables));
+			$(rightPanelExtended + " .vehicle-details").css("border-color", vehicles[currentlySelectedVehicle].line["color"]);
+			$(rightPanelExtended + " .vehicle-details .identificators").css("background-color", vehicles[currentlySelectedVehicle].line["color"]);
+		}
+
+		console.log("Minutes elapsed: " + minutesElapsed);
+		if(minutesElapsed > 3) {
+			map.removeLayer(marker);
+		} else {
+			// Add the marker if not already added
+			if(!map.hasLayer(marker)) {
+				marker.addTo(map);
+			}
+			// Set is position according to the last instant
+			marker.setLatLng(new L.LatLng(vehicleInstant.coordinate.lat, vehicleInstant.coordinate.lon));
+		}
 	}
 	
 	var localizationForVehicleDetails = function(lang) {
@@ -297,7 +301,36 @@ var TUMCore = function(params) {
 		if(isRightPanelHidden(rightPanelExtended)) {
 			toggleRightPanel(rightPanelExtended);
 		}
-		buildOrUpdateVehicleViewForCurrentVehicle();
+		
+		fetchLines(function() {
+			// Fetch handlebars template
+			var source   = $("#route-details-template").html();
+			var template = Handlebars.compile(source);
+			
+			// For each route
+			for(var i = 1 ; i <= linesCount ; i++) {
+				var line = lines[i];
+				
+				var color = line["color"];
+				var id = line["id"];
+				var number = line["name"].replace("Ruta ", "");
+				// Replace with variables
+				var html    = template({ id: id, lineNumber : number, leftTerminal : line.leftTerminal, rightTerminal : line.rightTerminal });
+				// And append generated html
+				$(rightPanel + " .routes").append(html);
+				$(rightPanel + " .routes " + "#" + id + " .color").css('background-color', color);
+				
+				var itemIdx = _.indexOf(selectedLines, parseInt(id));
+				if(itemIdx >= 0) {
+					$(rightPanel + " .routes " + "#" + id + " .details").addClass('selected');
+				}
+			}
+			// Now, fetch all the vehicles
+			fetchVehicles();
+			setInterval(updateVehicleAssociatedViews, 8000);
+		});
+
+
 	}
 	
 	this.routes = function() {
@@ -356,14 +389,7 @@ var TUMCore = function(params) {
 		// Fetch handlebars template
 		var source   = $("#timetables-template").html();
 		var template = Handlebars.compile(source);
-		var html    = template({ 
-			weekdays: "Lunes a Viernes", 
-			saturdays: "Sábados", 
-			sundays: "Domingos", 
-			weekdaysDetails: "Todas las rutas de 6:00 a 22:00 hrs",
-			saturdaysDetailsOne: "Rutas 1, 2, 4, 5 y 9 de 6:00 a 15:00 hrs",
-			saturdaysDetailsTwo: "Rutas 3 y 10 de 6:00 a 23:00 hrs",
-			sundaysDetails: "Rutas 3 y 10 de 6:00 a 23:00 hrs"  });
+		var html    = template(localeizator.stringsWithCurrentLang["timetables"]);
 		
 		$(rightPanel + " .timetables").html(html);
 		$(rightPanel).css('height', smallSize);
@@ -383,12 +409,7 @@ var TUMCore = function(params) {
 		// Fetch handlebars template
 		var source   = $("#about-template").html();
 		var template = Handlebars.compile(source);
-		var html    = template({ 
-			projectCredits: "Proyecto desarrollado con el apoyo de",
-			projectConsiderationsMain: "Esta aplicación y la infraestructura de telecomunicaciones incorporada a cada Pumabús están en proceso de mejora:",
-			projectConsiderationsDisclaimer: "En ciertas horas del día, por la saturación de la red GSM cercana al campus, la ubicación reportada por algunos pumabuses podría no estar disponible o estarlo con un tiempo de retraso considerable.",
-			app_version: "Versión 1.0"
-		});
+		var html    = template(localeizaor.stringsWithCurrentLang["about"]);
 		
 		$(rightPanel + " .about").html(html);
 		$(rightPanel).css('height', defaultSize);
