@@ -9,7 +9,6 @@ body, html {
 	font-family: 'Open Sans', sans-serif;
 	margin: 0;
 	padding: 0;
-	background-image: url('../images/white_boxes.png');
 	overflow: hidden;
 }
 
@@ -24,85 +23,328 @@ body, html {
   z-index:0;
 }
 
-#routes-main-panel, #routes-listing-panel {
+#pumabus-movil {
+	width: 150px;
+	height: 41px;
 	position: absolute;
-	display: none;
 	z-index: 1;
+	bottom: 20px;
+	left: 20px;
 	
-	-moz-box-shadow: 0 0 5px #000;
-	-webkit-box-shadow: 0 0 5px #000;
-	box-shadow: 0 0 5px #000;
+	a.image {
+		width: 150px;
+		height: 41px;
+		background-image: url('../assets/pumabus_project.png');
+		display: block;
+	}
 	
-	-webkit-border-radius: 5px 5px 0px 0px;
-	border-radius: 5px 5px 0px 0px;
-	
-	height: 50px;
-	bottom: -2px;
+	background-color: rgba(0,0,0,0.8);
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	padding: 10px;
+}
 
+#right-panel-extended, #right-panel {
+	
+	position: absolute;
+	z-index: 1;
+	-moz-box-shadow: 0 0 2px #000;
+	-webkit-box-shadow: 0 0 2px #000;
+	box-shadow: 0 0 2px #000;
+	
+	-webkit-border-radius: 5px 0px 0px 5px;
+	border-radius: 5px 0px 0px 5px;
+	
+	padding: 10px;
 	overflow: visible !important;
-	background-color: rgba(255, 255, 255, 0.9);
-}
-
-#routes-listing-panel {
-	left: 100px;
-	width: 800px;
-}
-
-#routes-main-panel {
-	left: 50%;
-	margin-left: -225px;
-	width: 450px;
+	background-color: #FBFBFB;
 	
-	p {
-		margin: 10px 0px 0px 30px;
-		padding: 5px;
-		font-size: 14px;
-		font-weight: 400;
-		color: black;
+	h1 {
+		font-size: 15px;
+		text-align: right;
+		margin-right: 10px;
+		text-transform: uppercase;
+		color: #717171;
 	}
 	
-	.punch {
-		position: absolute;
-		top: -10px;
-		float: right;
-		right: 20px;
+	.emph {
+		color: #2B3470;
 	}
 }
 
-.punch {
-  text-decoration: none;
-  background: #4162a8;
-  border-top: 1px solid #38538c;
-  border-right: 1px solid #1f2d4d;
-  border-bottom: 1px solid #151e33;
-  border-left: 1px solid #1f2d4d;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
-  -moz-box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
-  box-shadow: inset 0 1px 10px 1px #5c8bee, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
-  color: #fff;
-  font: bold 16px "helvetica neue", helvetica, arial, sans-serif;
-  line-height: 1;
-  margin-bottom: 10px;
-  padding: 10px 0 12px 0;
-  text-align: center;
-  text-shadow: 0px -1px 1px #1e2d4d;
-  width: 150px;
-  -webkit-background-clip: padding-box; 
+#right-panel-extended {
+	height: 250px;
+	width: 200px;
+	right: -220px;
+	top: 200px;
+	
+	.vehicle-details {
+		border-top: 5px solid #4A5E99;
+		
+		p {
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		.way-out {
+			margin-top: 20px;
+			text-align: center;
+		}
+		
+		.speed, .date {
+			font-size: 11px;
+		}
+		
+		.date {
+			margin-top: 3px;
+		}
+		
+		.line {
+			font-size: 11px;
+			text-align: right;
+			position: relative;
+			
+			top: -40px;
+			right: 0px;
+			
+		}
+		
+		.identificators {
+			width: 55px;
+			padding: 5px;
+			background-color: #4A5E99;
+			
+			p {
+				color: white;
+				text-align: center;
+			}
+			
+			.bus, .number {
+				text-shadow: 0.4px 0.4px #68696B;
+			}
+			
+			.bus {
+				text-transform: uppercase;
+				font-size: 11px;
+			}
+			
+			.number {
+				font-size: 19px;
+				font-weight: bold;
+			}
+
+		}
+	}
+
 }
 
-.punch:hover {
-    -webkit-box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
-    -moz-box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
-    box-shadow: inset 0 0px 20px 1px #87adff, 0px 1px 0 #1d2c4d, 0 6px 0px #1f3053, 0 8px 4px 1px #111111;
-    cursor: pointer; 
+#right-panel {
+	width: 250px;
+	height: 500px;
+	width: 250px;
+	right: -270px;
+	top: 80px;
+	
+	ul li { list-style: none }
+	
+	ul.menu {
+		padding-left: 0px;
+		text-align: center;
+		
+		li {
+			display: inline-block;
+			font-size: 12px;
+			margin-left: 8px;
+			margin-right: 8px;
+			background-color: #C3C3C3;
+			padding: 5px 8px;
+			
+			font-weight: bold;
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+			
+			a {
+				text-decoration: none;
+				color: white;
+			}
+		}
+		
+		li.selected {
+			background-color: #696969;
+		}
+		
+		li:hover {
+			background-color: #747474;
+		}
+	}
+	
+	.about {
+		font-size: 12px;
+		font-weight: bold;
+		text-align: center;
+		color: #6D6D6D;
+		margin: 0;
+		
+		p {
+			font-size: 11px;
+			text-align: left;
+			margin: 5px;
+		}
+		
+		p.disclaimer {
+			font-weight: 100;
+			font-size: 10px;
+		}
+		
+		p.intro, p.version {
+			text-align: center;
+		}
+		
+		p.version {
+			margin-bottom: 4px;
+			color: #CA5811;
+		}
+		
+
+	}
+	
+	.timetables {
+		height: auto;
+		padding: 2px;
+		margin: 30px 0px 20px 10px;
+		
+		h1 {
+			font-size: 14px;
+			text-align: left;
+		}
+		
+		p {
+			margin: 2px;
+			font-size: 12px;
+		}
+	}
+	
+	.lang-choose {
+		text-align: right;
+		
+		a {
+			text-decoration: none;
+			margin-right: 10px;
+			font-size: 11px;
+			padding: 3px 6px;
+			background-color: black;
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+			color: white;
+		}
+		
+		a:hover {
+			background-color: #656565;
+		}
+	}
+	
+	ul.routes {
+		border-top: 0.1px solid #E4E4E4;
+		
+		padding: 2px;
+		margin-top: 20px;
+		margin-bottom: 15px;
+		overflow-y: scroll !important;
+		height: 350px;
+		
+		.details:hover {
+			background-color: #5B5B5B;
+			
+			h1, h2 {
+				color: white;
+			}
+		}
+		
+		.selected {
+			background-color: #2C2C2C;
+			
+			h1, h2 {
+				color: white;
+			}
+		}
+		
+		.details {
+			cursor: pointer;
+			margin: 4px 0px 4px 10px;
+			h1 {
+				font-size: 40px;
+				padding: 0px;
+				margin: 0px;
+				margin-right: 15px;
+				border: none;
+				width: 30px;
+			}
+			
+			h1, .endpoints, .color {
+				display: inline-block;
+			}
+			
+			.endpoints {
+				vertical-align: 2px;
+			}
+			
+			.color {
+				height: 55px;
+				width: 10px;
+				float: right;
+				background-color: black;
+			}
+			
+			h2 {
+				font-size: 11px;
+				margin: 0px;
+				margin-left: 20px;
+				font-weight: 100;
+			}
+
+		}
+	}
 }
 
-.punch:active {
-    -webkit-box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
-    -moz-box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
-    box-shadow: inset 0 1px 10px 1px #5c8bee, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111111;
-    margin-top: 10px; 
+.slides_container {
+    width:250px;
+    height:180px;
 }
+.slides_container div {
+    width:250px;
+    height:180px;
+    display:block;
+}
+
+.slides_container img.pumabus {
+	margin-top: 60px !important	;
+}
+
+.slides_container img.iimas {
+	margin-top: 10px !important	;
+}
+
+.pagination {
+	padding-left: 10px;
+	text-align: center;
+	
+	li {
+		display: inline-block;
+		margin-right: 10px;
+		
+		a	{
+	    display: block;
+	    width: 13px;
+	    height: 0;
+	    padding-top: 13px;
+	    background-image: url('../assets/pagination.png');
+	    background-position: 0 0;
+	    float: left;
+	    overflow: hidden;
+		}
+	}
+}
+
+.pagination li.current a, .pagination li.current a:hover { background-position: 0 -13px }
+
+.pagination li a:hover { background-position: 0 -26px }

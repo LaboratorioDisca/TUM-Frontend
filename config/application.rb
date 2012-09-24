@@ -59,6 +59,6 @@ module TUMWeb
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 	
-	config.assets.precompile += ['landing_page.js', 'map.css', 'landing_page.css']
+	  config.assets.precompile += ['landing_page.js', 'map.css', 'landing_page.css']
   end
 end

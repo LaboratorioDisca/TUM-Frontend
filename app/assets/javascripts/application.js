@@ -17,6 +17,10 @@
 //= require leaflet
 //= require wax.leaf.min
 //= require path.min
+//= require handlebars
+//= require slides.min.jquery
+//= require jquery.easing
+//= require jquery.prettydate
 
 //= require main
 //= require app.body

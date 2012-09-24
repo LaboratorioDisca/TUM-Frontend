@@ -1,9 +1,94 @@
 <div id="map" style="padding: 0pt; overflow: hidden; cursor: default;"></div></div>
 
-<div id="routes-main-panel">
-	<p>Mostrando 3 rutas en el mapa</p>
-	<%= link_to 'Ver Rutas', '#/routes', :class => "punch" %>
+<div id="right-panel-extended">
+	<h1><span class="emph">Pumabús Movil </span>Web</h1>
+	
+	<div class="content">
+		<div class="vehicle-details"></div>
+	</div>
 </div>
-<div id="routes-listing-panel">
 
+<div id="right-panel">
+	<h1><span class="emph">Pumabús Movil </span>Web</h1>
+	
+	<div class="content">
+		<ul class="menu">
+			<li class="selected routes-entry"><%= link_to "Rutas", '#/routes' %></li>
+			<li class="timetables-entry"><%= link_to "Horarios", '#/timetables' %></li>
+			<li class="about-entry"><%= link_to "Acerca de", '#/about' %></li>
+		</ul>
+		
+		<ul class="routes"></ul>
+		<div class="timetables"></div>
+		<div class="about"></div>
+	</div>
+	<div class="lang-choose">
+		<%= link_to "En Inglés", "javascript:void(0);" %>
+	</div>
 </div>
+
+<div id="pumabus-movil"><a class="image" href="<%= root_path %>"></a></div>
+
+<script id="route-details-template" type="text/x-handlebars-template">
+  <li id="{{ id }}" route="{{ lineNumber }}">
+		<div class="details">
+			<h1>{{ lineNumber }}</h1>
+			<div class="endpoints">
+				<h2>{{ leftTerminal }}</h2>
+				<h2>{{ rightTerminal }}</h2>
+			</div>
+			<div class="color"></div>
+		</div>
+	</li>
+</script>
+
+<script id="timetables-template" type="text/x-handlebars-template">
+	<h1>{{ weekdays }}</h1>
+	<p>{{ weekdaysDetails }}</p>
+	
+	<h1>{{ saturdays }}</h1>
+	<p>{{ saturdaysDetailsOne }}</p>
+	<p>{{ saturdaysDetailsTwo }}</p>
+	
+	<h1>{{ sundays }}</h1>
+	<p>{{ sundaysDetails }}</p>
+</script>
+
+<script id="about-template" type="text/x-handlebars-template">
+	<p class="intro">{{ projectCredits }}</p>
+	<div id="pictures">
+		<div class="slides_container">
+			<div>
+				<%= image_tag "unam_small.png" %>
+			</div>
+			<div>
+				<%= image_tag "IIMAS_small.jpg", :class => "iimas" %>
+			</div>
+			<div>
+				<%= image_tag "pumabus_small.png", :class => "pumabus" %>
+			</div>
+		</div>
+	</div>
+	<p class="main">{{ projectConsiderationsMain }}</p>
+	<p class="disclaimer">{{ projectConsiderationsDisclaimer }}</p>
+	
+	<p class="version">{{ app_version }}</p>
+</script>
+
+<script id="vehicle-template" type="text/x-handlebars-template">
+	<div class="identificators">
+		<p class="bus">PUMABUS</p>
+		<p class="number"># {{ busNumber }}</p>
+	</div>
+	<div class="line">
+		<p class="origin">{{ lineOrigin }}</p>
+		<p class="destination">{{ lineDestination }}</p>
+	</div>
+
+	<p class="speed">{{ speedPrelude }} {{ busSpeed }} {{ speedMetrics }}</p>
+	<p class="date">{{ reportTimestampPrelude }} {{ busReportTimestamp }}</p>
+	
+	<div class="way-out">
+		<%= link_to image_tag('return.png'), "#{web_index_path}#/clearVehicleSelection" %>
+	</div>
+</script>
