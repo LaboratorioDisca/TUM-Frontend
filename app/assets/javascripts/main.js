@@ -9,9 +9,9 @@ $(document).ready(function() {
 	var coreInstance = new TUMCore({ tilesURL : tilesURL, url : webServiceURL, map: map, latLng: defaultLatLng });
 	
 	Path.map("#/").to(coreInstance.routes);
-	Path.map("#/routes").to(coreInstance.routes);
-	Path.map("#/timetables").to(coreInstance.timetables);
-	Path.map("#/about").to(coreInstance.about);
+	Path.map("#/routes(/:lang)").to(coreInstance.routes);
+	Path.map("#/timetables(/:lang)").to(coreInstance.timetables);
+	Path.map("#/about(/:lang)").to(coreInstance.about);
 	Path.map("#/vehicles/:vehicleId").to(coreInstance.expandedVehicleInfo);
 	Path.map("#/clearVehicleSelection").to(coreInstance.clearVehicleSelection);
 	Path.root("#/");

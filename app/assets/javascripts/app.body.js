@@ -8,7 +8,7 @@ var TUMCore = function(params) {
 	var url=params.url;
 	var map=params.map;
 	
-	var graceTime = 600;
+	var graceTime = 3;
 	var vehicleZoom = 19;
 	var defaultZoom = 16;
 	var defaultLatLng = params.latLng;
@@ -29,7 +29,7 @@ var TUMCore = function(params) {
 	var vehicles = null;
 	var currentlySelectedVehicle = null;
 	
-	var localeizator = new LocalesDictionary("es");
+	var localeizator = null;
 	
 	// Associated views
 	var rightPanel = "#right-panel";
@@ -38,9 +38,9 @@ var TUMCore = function(params) {
 	var smallSize = "350px";
 	
 	var initialize = function() {
+		localeizator = new LocalesDictionary("es");
 		fetchLines();
 		loadPresets();
-		locatizationDefinitions();
 	}	
 	
 	var loadPresets = function() {
@@ -48,6 +48,33 @@ var TUMCore = function(params) {
 		$('.details').live('click', function() {
 			updateSelectionOfRouteWithId(parseInt($(this).parent().attr('id')), $(this).parent().attr('route'), $(this));
 		});
+		
+		// Lang selector
+		$('.home-lang').live('click', function() {
+			
+			if(currentLang == "espanol") {
+				currentLang = "english";
+			} else {
+				currentLang = "espanol"
+			}
+			updateURL(currentLang);
+			location.reload();
+		});
+	}
+	
+	var updateURL = function(nextLocale) {
+		var currentURL = window.location.hash;
+		if(currentURL=="#/") {
+			window.location.hash = "/routes/"+nextLocale;
+		} else {
+			if(currentURL.search("routes") >= 0) {
+				window.location.hash = "/routes/"+nextLocale;
+			} else if	(currentURL.search("timetables") >= 0) {
+				window.location.hash = "/timetables/"+nextLocale;
+			}	else if	(currentURL.search("about") >= 0) {
+				window.location.hash = "/about/"+nextLocale;
+			}
+		}
 	}
 	
 	// Add or remove a route from the selection list
@@ -221,35 +248,46 @@ var TUMCore = function(params) {
 		}
 	}
 	
-	var deselectAllMenuEntries = function() {
+	var deselectAllMenuEntries = function(params) {
 		$(rightPanel + " .menu li").removeClass('selected');
 		// Reset HTML Contents
 		$(rightPanel + " .routes").html("");
 		$(rightPanel + " .routes").hide();
 		$(rightPanel + " .timetables").hide();
 		$(rightPanel + " .about").hide();
+		
+		var newLang = params["lang"] || localeizator.currentLang;
+		if(newLang != undefined) {
+			currentLang = newLang;
+		}
+				
+		if(currentLang != undefined) {
+			updateURL(currentLang);
+		}
+		
+		// Replace the menu entries with it's translated versions
+		var source   = $("#content-for-menu-placeholder").html();
+		var template = Handlebars.compile(source);
+		var html    = template(localeizator.stringsWithCurrentLang()["mainMenu"]);
+		$(rightPanel + " .menuPlaceHolder").replaceWith(html);
+		
+		// Replace link with it's translated version
+		source = $("#content-for-lang-placeholder").html();
+		template = Handlebars.compile(source);
+		html    = template({linkLang: localeizator.stringsWithCurrentLang()["linkLang"]});
+		$(rightPanel + " .langPlaceHolder").replaceWith(html);
 	}
 	
-	var locatizationDefinitions = function() {
-		$.prettyDate.messages = { 
-			now: "hace unos instantes", 
-			minute: "hace menos de un minuto", 
-			minutes: $.prettyDate.template("hace {0} minutos"), 
-			hour: "hace aproximadamente una hora", 
-			hours: $.prettyDate.template("hace {0} horas"), 
-			yesterday: "ayer", 
-			days: $.prettyDate.template("hace {0} días"), 
-			weeks: $.prettyDate.template("hace {0} semanas")
-		};
+	var millisecondsToMinutes = function(milis) {
+		var currentMili = new Date().getTime();	
+		var seconds = Math.floor(Math.abs(currentMili-milis) / 1000);
+		return Math.floor(seconds / 60) % 60 ;
 	}
 	
 	// URL Routes responders
 	var updateVehicleAssociatedViews = function(vehicleId) {
 		// Compute marker time to see if it can still be displayed
-		var timestampMili = vehicles[vehicleId].instant["createdAt"]
-		var currentMili = new Date().getMilliseconds();	
-		var seconds = Math.floor(Math.abs(currentMili-timestampMili) / 1000);
-		var minutesElapsed = Math.floor(seconds / 60) % 60;
+		var minutesElapsed = millisecondsToMinutes(vehicles[vehicleId].instant["createdAt"]);
 					
 		var marker = vehicles[vehicleId].marker;
 					
@@ -259,7 +297,7 @@ var TUMCore = function(params) {
 			var source   = $("#vehicle-template").html();
 			var template = Handlebars.compile(source);
 		
-			var date = new Date(timestampMili);
+			var date = new Date(vehicles[vehicleId].instant["createdAt"]);
 		
 			var variables = _.extend({ 
 				lineOrigin: vehicles[currentlySelectedVehicle].line.leftTerminal,
@@ -276,7 +314,6 @@ var TUMCore = function(params) {
 			map.setView(marker.getLatLng(), vehicleZoom);
 		}
 
-		console.log("Minutes elapsed: " + minutesElapsed);
 		if(minutesElapsed > graceTime) {
 			map.removeLayer(marker);
 		} else {
@@ -289,12 +326,13 @@ var TUMCore = function(params) {
 		}
 	}
 	
-	var localizationForVehicleDetails = function(lang) {
-			return {
-				speedPrelude: "Velocidad promedio: ",
-				speedMetrics: " km/h",
-				reportTimestampPrelude: "Reporte recibido: "
-			}
+	var loadCurrentVehicleAndLine = function() {
+		if(currentlySelectedVehicle != null) {
+			var route = vehicles[currentlySelectedVehicle].line;
+			updateVehicleAssociatedViews(currentlySelectedVehicle);
+			selectedLines.push(route["id"]);
+			map.addLayer(lines[route["name"]].paths);
+		}
 	}
 	
 	this.clearVehicleSelection = function() {
@@ -322,15 +360,6 @@ var TUMCore = function(params) {
 		});
 	}
 	
-	var loadCurrentVehicleAndLine = function() {
-		if(currentlySelectedVehicle != null) {
-			var route = vehicles[currentlySelectedVehicle].line;
-			updateVehicleAssociatedViews(currentlySelectedVehicle);
-			selectedLines.push(route["id"]);
-			map.addLayer(lines[route["name"]].paths);
-		}
-	}
-	
 	this.routes = function() {
 		// Should show default right panel
 		if(isRightPanelHidden(rightPanel)) {
@@ -341,10 +370,11 @@ var TUMCore = function(params) {
 			toggleRightPanel(rightPanelExtended);
 		}
 		
-		deselectAllMenuEntries();
+		deselectAllMenuEntries(this.params);
 		$(rightPanel + " .menu li.routes-entry").addClass('selected');
 		
 		fetchLines(function() {
+			
 			// Fetch handlebars template
 			var source   = $("#route-details-template").html();
 			var template = Handlebars.compile(source);
@@ -376,7 +406,7 @@ var TUMCore = function(params) {
 	}
 	
 	this.timetables = function() {
-		deselectAllMenuEntries();
+		deselectAllMenuEntries(this.params);
 		// Should show default right panel
 		if(isRightPanelHidden(rightPanel)) {
 			toggleRightPanel(rightPanel);
@@ -396,7 +426,7 @@ var TUMCore = function(params) {
 	}
 	
 	this.about = function() {
-		deselectAllMenuEntries();
+		deselectAllMenuEntries(this.params);
 		// Should show default right panel
 		if(isRightPanelHidden(rightPanel)) {
 			toggleRightPanel(rightPanel);

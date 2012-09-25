@@ -14,22 +14,30 @@
 	<h1><span class="emph">Pumabús Movil </span>Web</h1>
 	
 	<div class="content">
-		<ul class="menu">
-			<li class="selected routes-entry"><%= link_to "Rutas", '#/routes' %></li>
-			<li class="timetables-entry"><%= link_to "Horarios", '#/timetables' %></li>
-			<li class="about-entry"><%= link_to "Acerca de", '#/about' %></li>
-		</ul>
+		<div class="menuPlaceHolder"></div>
 		
 		<ul class="routes"></ul>
 		<div class="timetables"></div>
 		<div class="about"></div>
 	</div>
-	<div class="lang-choose">
-		<%= link_to "En Inglés", "javascript:void(0);" %>
-	</div>
+	<div class="langPlaceHolder"></div>
 </div>
 
 <div id="pumabus-movil"><a class="image" href="<%= root_path %>"></a></div>
+
+<script id="content-for-lang-placeholder" type="text/x-handlebars-template">
+	<div class="lang-choose">
+		<a href="javascript:void(0);" class="home-lang">{{ linkLang }}</a>
+	</div>
+</script>
+
+<script id="content-for-menu-placeholder" type="text/x-handlebars-template">
+	<ul class="menu">
+		<li class="routes-entry"><a href="#/routes">{{ linkRoutes }}</a></li>
+		<li class="timetables-entry"><a href="#/timetables">{{ linkTimetables }}</a></li>
+		<li class="about-entry"><a href="#/about">{{ linkAbout }}</a></li>
+	</ul>
+</script>
 
 <script id="route-details-template" type="text/x-handlebars-template">
   <li id="{{ id }}" route="{{ lineNumber }}">
