@@ -3,10 +3,10 @@ var tilesURL = "http://132.248.51.251:8888/v2/UNAMCU.json";
 var map;
 
 $(document).ready(function() {
-	var latlng = new L.LatLng(19.322675,-99.192080);
-	map = new L.Map('map').setView(latlng, 16);
+	var defaultLatLng = new L.LatLng(19.322675,-99.192080);
+	map = new L.Map('map').setView(defaultLatLng, 16);
 
-	var coreInstance = new TUMCore({ tilesURL : tilesURL, url : webServiceURL, map: map });
+	var coreInstance = new TUMCore({ tilesURL : tilesURL, url : webServiceURL, map: map, latLng: defaultLatLng });
 	
 	Path.map("#/").to(coreInstance.routes);
 	Path.map("#/routes").to(coreInstance.routes);

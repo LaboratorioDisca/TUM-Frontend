@@ -9,7 +9,10 @@ var TUMCore = function(params) {
 	var map=params.map;
 	
 	var graceTime = 600;
-
+	var vehicleZoom = 19;
+	var defaultZoom = 16;
+	var defaultLatLng = params.latLng;
+	
 	// Data Structures
 	var linesCount = 0;
 	// Stores:
@@ -269,6 +272,8 @@ var TUMCore = function(params) {
 			$(rightPanelExtended + " .vehicle-details").html(template(variables));
 			$(rightPanelExtended + " .vehicle-details").css("border-color", vehicles[currentlySelectedVehicle].line["color"]);
 			$(rightPanelExtended + " .vehicle-details .identificators").css("background-color", vehicles[currentlySelectedVehicle].line["color"]);
+			
+			map.setView(marker.getLatLng(), vehicleZoom);
 		}
 
 		console.log("Minutes elapsed: " + minutesElapsed);
@@ -295,6 +300,8 @@ var TUMCore = function(params) {
 	this.clearVehicleSelection = function() {
 		currentlySelectedVehicle = null;
 		window.location.hash = "#/routes";
+		$(rightPanelExtended + " .vehicle-details").html("<div class='loader'></div>");
+		map.setView(defaultLatLng, defaultZoom);
 	}
 	
 	this.expandedVehicleInfo = function() {
