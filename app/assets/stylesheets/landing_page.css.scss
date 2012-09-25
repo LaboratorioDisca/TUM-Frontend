@@ -265,13 +265,13 @@ body, html {
 			}
 			
 			div#map_ios {
-				background-image: url('../assets/map_ios.png');
+				background-image: url('../assets/rt_ios.png');
 				width: 322px;
-				height: 481px;
+				height: 482px;
 			}
 			
 			div#real-time_ios {
-				background-image: url('../assets/rt_ios.png');
+				background-image: url('../assets/map_ios.png');
 				width: 322px;
 				height: 480px;
 			}
@@ -293,31 +293,31 @@ body, html {
 			div#routes_android {
 				background-image: url('../assets/routes_android.png');
 				width: 292px;
-				height: 482px;
+				height: 489px;
 			}
 			
 			div#map_android {
-				background-image: url('../assets/map_android.png');
+				background-image: url('../assets/rt_android.png');
 				width: 292px;
-				height: 482px;
+				height: 485px;
 			}
 			
 			div#real-time_android {
-				background-image: url('../assets/rt_android.png');
-				width: 291px;
-				height: 482px;
+				background-image: url('../assets/map_android.png');
+				width: 292px;
+				height: 488px;
 			}
 			
 			div#places_android {
 				background-image: url('../assets/places_android.png');
 				width: 291px;
-				height: 482px;
+				height: 486px;
 			}
 			
 			div#schedules_android {
 				background-image: url('../assets/timetables_android.png');
 				width: 291px;
-				height: 482px;
+				height: 485px;
 			}
 		}
 		
