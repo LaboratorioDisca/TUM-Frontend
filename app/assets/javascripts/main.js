@@ -4,9 +4,10 @@ var map;
 
 $(document).ready(function() {
 	var latlng = new L.LatLng(19.322675,-99.192080);
-	var map = new L.Map('map').setView(latlng, 16);
-	
+	map = new L.Map('map').setView(latlng, 16);
+
 	var coreInstance = new TUMCore({ tilesURL : tilesURL, url : webServiceURL, map: map });
+	
 	Path.map("#/").to(coreInstance.routes);
 	Path.map("#/routes").to(coreInstance.routes);
 	Path.map("#/timetables").to(coreInstance.timetables);
@@ -19,6 +20,7 @@ $(document).ready(function() {
   // Get metadata about the map from MapBox
   wax.tilejson(tilesURL, function(tilejson) {
       // Add MapBox Streets as a base layer
+
       map.addLayer(new wax.leaf.connector(tilejson));
   });
 	

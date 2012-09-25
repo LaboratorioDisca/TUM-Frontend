@@ -2,16 +2,16 @@ var LocalesDictionary = function(lang) {
 	var currentLang = "es";
 	
 	var localizedStrings = {
-		es : {
-			vehicles : {
-				groupedDetails {
+		es: {
+			vehicles: {
+				groupedDetails: {
 					speedPrelude: "Velocidad promedio: ",
 					speedMetrics: " km/h",
 					reportTimestampPrelude: "Reporte recibido: "
 				},
 				today: "Hoy a las "
 			},
-			timetables : {
+			timetables: {
 				weekdays: "Lunes a Viernes",
 				saturdays: "Sábados",
 				sundays: "Domingos",
@@ -20,7 +20,7 @@ var LocalesDictionary = function(lang) {
 				saturdaysDetailsTwo: "Rutas 3 y 10 de 6:00 a 23:00 hrs",
 				sundaysDetails: "Rutas 3 y 10 de 6:00 a 23:00 hrs"
 			},
-			about : {
+			about: {
 				projectCredits: "Proyecto desarrollado con el apoyo de",
 				projectConsiderationsMain: "Esta aplicación y la infraestructura de telecomunicaciones incorporada a cada Pumabús están en proceso de mejora:",
 				projectConsiderationsDisclaimer: "En ciertas horas del día, por la saturación de la red GSM cercana al campus, la ubicación reportada por algunos pumabuses podría no estar disponible o estarlo con un tiempo de retraso considerable.",
@@ -29,7 +29,7 @@ var LocalesDictionary = function(lang) {
 		}
 	}
 
-	var stringsWithCurrentLang = function() {
+	this.stringsWithCurrentLang = function() {
 		return localizedStrings[currentLang];
 	}
 }

@@ -7,6 +7,8 @@ var TUMCore = function(params) {
 	var tilesURL=params.tilesURL;
 	var url=params.url;
 	var map=params.map;
+	
+	var graceTime = 600;
 
 	// Data Structures
 	var linesCount = 0;
@@ -25,7 +27,7 @@ var TUMCore = function(params) {
 	var currentlySelectedVehicle = null;
 	
 	var localeizator = new LocalesDictionary("es");
-
+	
 	// Associated views
 	var rightPanel = "#right-panel";
 	var rightPanelExtended = '#right-panel-extended';
@@ -39,6 +41,7 @@ var TUMCore = function(params) {
 	}	
 	
 	var loadPresets = function() {
+		// When clicking a route from the list update selection list
 		$('.details').live('click', function() {
 			updateSelectionOfRouteWithId(parseInt($(this).parent().attr('id')), $(this).parent().attr('route'), $(this));
 		});
@@ -80,6 +83,7 @@ var TUMCore = function(params) {
 					var line = data[idx];
 					// Chunk route name to route number only (TODO: Change this field on the backend)
 					var lineNumber = line["name"].replace("Ruta ", "");
+					line["name"] = lineNumber;
 					
 					// Build the polylines
 					var polyLineGroupGroup = [];
@@ -95,20 +99,20 @@ var TUMCore = function(params) {
 						polyLineGroupGroup.push(polyLineGroup);
 					}
 					
-					// Buld the multipolyline and bind to it a popup window
+					// Build the multipolyline and bind to it a popup window
 					var polyLineMap = new L.MultiPolyline(polyLineGroupGroup, {color: line["color"], opacity: 1 });
 					polyLineMap.bindPopup("<b>Ruta "+lineNumber+"</b>", {maxWidth: 200, maxHeight: 100});
 					line["paths"] = polyLineMap;
 					lines[parseInt(lineNumber)] = line; 
 				}
 				// If a callback function is provided, it gets executed
-				if(callback) {
+				if(callback != undefined) {
 					callback();
 				}
 			});
 		} else {
 			// Execute the callback function (if any) if routes have been already loaded
-			if(callback) {
+			if(callback != undefined) {
 				callback();
 			}
 		}
@@ -159,11 +163,14 @@ var TUMCore = function(params) {
 	}
 	
 	var fetchRecentInstants = function() {
-		$.getJSON(webServiceURL+"instants/minutesago/3?callback=?", function(data){
+		$.getJSON(webServiceURL+"instants/minutesago/"+graceTime+"?callback=?", function(data){
 			for(var idx in data) {
 				// TODO: Drop vehicleId from new instant object
 				vehicles[data[idx].vehicleId]["instant"] = data[idx];
 			}
+			
+			loadCurrentVehicleAndLine();
+			
 			drawVehiclesForCurrentlySelectedRoutes();
 		}).error(function() {
 			appendErrorFor("unknown-error");
@@ -203,6 +210,7 @@ var TUMCore = function(params) {
 				var vehicleId = vehicleForLines[vehicleIdx];
 				
 				var vehicleInstant = vehicles[vehicleId].instant;
+				
 				if(vehicleInstant != null) {
 					updateVehicleAssociatedViews(vehicleId);
 				}
@@ -233,13 +241,12 @@ var TUMCore = function(params) {
 	}
 	
 	// URL Routes responders
-	
 	var updateVehicleAssociatedViews = function(vehicleId) {
 		// Compute marker time to see if it can still be displayed
 		var timestampMili = vehicles[vehicleId].instant["createdAt"]
 		var currentMili = new Date().getMilliseconds();	
 		var seconds = Math.floor(Math.abs(currentMili-timestampMili) / 1000);
-		var minutesElapsed = Math.floor(seconds / 60);
+		var minutesElapsed = Math.floor(seconds / 60) % 60;
 					
 		var marker = vehicles[vehicleId].marker;
 					
@@ -256,8 +263,8 @@ var TUMCore = function(params) {
 				lineDestination: vehicles[currentlySelectedVehicle].line.rightTerminal,
 				busNumber: vehicles[currentlySelectedVehicle].vehicle.publicNumber, 
 				busSpeed: vehicles[currentlySelectedVehicle].instant["speed"], 
-				busReportTimestamp: localeizator.stringsWithCurrentLang["vehicles"]["today"] + date.getHours() + ":" + date.getMinutes() }, 
-				localeizator.stringsWithCurrentLang["vehicles"]["groupedDetails"]);
+				busReportTimestamp: localeizator.stringsWithCurrentLang()["vehicles"]["today"] + date.getHours() + ":" + date.getMinutes() }, 
+				localeizator.stringsWithCurrentLang()["vehicles"]["groupedDetails"]);
 		
 			$(rightPanelExtended + " .vehicle-details").html(template(variables));
 			$(rightPanelExtended + " .vehicle-details").css("border-color", vehicles[currentlySelectedVehicle].line["color"]);
@@ -265,7 +272,7 @@ var TUMCore = function(params) {
 		}
 
 		console.log("Minutes elapsed: " + minutesElapsed);
-		if(minutesElapsed > 3) {
+		if(minutesElapsed > graceTime) {
 			map.removeLayer(marker);
 		} else {
 			// Add the marker if not already added
@@ -273,7 +280,7 @@ var TUMCore = function(params) {
 				marker.addTo(map);
 			}
 			// Set is position according to the last instant
-			marker.setLatLng(new L.LatLng(vehicleInstant.coordinate.lat, vehicleInstant.coordinate.lon));
+			marker.setLatLng(new L.LatLng(vehicles[vehicleId].instant.coordinate.lat, vehicles[vehicleId].instant.coordinate.lon));
 		}
 	}
 	
@@ -303,34 +310,18 @@ var TUMCore = function(params) {
 		}
 		
 		fetchLines(function() {
-			// Fetch handlebars template
-			var source   = $("#route-details-template").html();
-			var template = Handlebars.compile(source);
-			
-			// For each route
-			for(var i = 1 ; i <= linesCount ; i++) {
-				var line = lines[i];
-				
-				var color = line["color"];
-				var id = line["id"];
-				var number = line["name"].replace("Ruta ", "");
-				// Replace with variables
-				var html    = template({ id: id, lineNumber : number, leftTerminal : line.leftTerminal, rightTerminal : line.rightTerminal });
-				// And append generated html
-				$(rightPanel + " .routes").append(html);
-				$(rightPanel + " .routes " + "#" + id + " .color").css('background-color', color);
-				
-				var itemIdx = _.indexOf(selectedLines, parseInt(id));
-				if(itemIdx >= 0) {
-					$(rightPanel + " .routes " + "#" + id + " .details").addClass('selected');
-				}
-			}
 			// Now, fetch all the vehicles
 			fetchVehicles();
-			setInterval(updateVehicleAssociatedViews, 8000);
 		});
-
-
+	}
+	
+	var loadCurrentVehicleAndLine = function() {
+		if(currentlySelectedVehicle != null) {
+			var route = vehicles[currentlySelectedVehicle].line;
+			updateVehicleAssociatedViews(currentlySelectedVehicle);
+			selectedLines.push(route["id"]);
+			map.addLayer(lines[route["name"]].paths);
+		}
 	}
 	
 	this.routes = function() {
@@ -357,7 +348,7 @@ var TUMCore = function(params) {
 				
 				var color = line["color"];
 				var id = line["id"];
-				var number = line["name"].replace("Ruta ", "");
+				var number = line["name"];
 				// Replace with variables
 				var html    = template({ id: id, lineNumber : number, leftTerminal : line.leftTerminal, rightTerminal : line.rightTerminal });
 				// And append generated html
@@ -389,7 +380,7 @@ var TUMCore = function(params) {
 		// Fetch handlebars template
 		var source   = $("#timetables-template").html();
 		var template = Handlebars.compile(source);
-		var html    = template(localeizator.stringsWithCurrentLang["timetables"]);
+		var html    = template(localeizator.stringsWithCurrentLang()["timetables"]);
 		
 		$(rightPanel + " .timetables").html(html);
 		$(rightPanel).css('height', smallSize);
@@ -409,7 +400,7 @@ var TUMCore = function(params) {
 		// Fetch handlebars template
 		var source   = $("#about-template").html();
 		var template = Handlebars.compile(source);
-		var html    = template(localeizaor.stringsWithCurrentLang["about"]);
+		var html    = template(localeizator.stringsWithCurrentLang()["about"]);
 		
 		$(rightPanel + " .about").html(html);
 		$(rightPanel).css('height', defaultSize);

@@ -22,6 +22,7 @@
 //= require jquery.easing
 //= require jquery.prettydate
 
+//= require locales
 //= require main
 //= require app.body
 
