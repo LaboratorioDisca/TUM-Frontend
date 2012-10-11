@@ -19,6 +19,9 @@ es_MX:
       title: "También para la Web"
       idea: "Para quienes no tienen un teléfono inteligente"
   communication:
+    presentation: 
+      download: "Descargar"
+      notes: "las notas de la presentación"
     invite: 
       verb: "Presentación: "
       details: "26 de Agosto a las 11 horas @ <b>IIMAS, UNAM</b>"

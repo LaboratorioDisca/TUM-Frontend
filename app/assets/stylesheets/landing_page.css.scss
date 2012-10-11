@@ -706,8 +706,12 @@ body, html {
 	text-transform: uppercase;
 	
 	.invite {
-		strong {
-			color: #E69800;
+		strong a {
+			color: #E6B056;
+		}
+		
+		strong a:hover {
+			color: #E68D14;
 		}
 		color: white;
 		

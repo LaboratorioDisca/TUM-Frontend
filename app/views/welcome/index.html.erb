@@ -29,7 +29,12 @@
 	</div>
 	
 	<div id="communication">
-		<div class="centered invite"><p><strong><%= t('communication.invite.verb') %></strong><%= t('communication.invite.details').html_safe %></p></div>
+		<div class="centered invite">
+			<p>
+				<strong><%= link_to t('communication.presentation.download'), presentation_web_index_path %></strong>
+				<%= t('communication.presentation.notes') %>
+			</p>
+		</div>
 	</div>
 	
 	<div id="details" class="blocky">
